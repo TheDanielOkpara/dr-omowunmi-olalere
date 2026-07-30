@@ -7,390 +7,314 @@
 <meta name="description" content="Dr. Omowunmi Olalere helps senior professionals, executives, and retirees turn a lifetime of experience into a business that lasts. Founder and CEO, Numero Group.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,500&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    /* Brand: her actual mark — interlocking green + gold rings on near-black */
-    --ink:       #0A0A0A;   /* true near-black, matches the logo's own canvas */
-    --paper:     #FAFAFA;   /* cool near-white, not warm cream */
-    --surface:   #FFFFFF;
-    --line:      #E7E7E4;
-    --mid:       #5B5D63;
-    --gold:      #F8C833;   /* logo gold — graphic fills, CTAs, text-on-dark only */
-    --gold-ink:  #7A5209;   /* deepened gold — AA-safe text on light backgrounds */
-    --green:     #00D21A;   /* logo green — checks, focus rings, small marks */
+    --ink:     #0A0A0A;
+    --ink-2:   #151515;
+    --paper:   #FFFFFF;
+    --off:     #F6F6F5;
+    --line:    #E7E7E4;
+    --mid:     #5B5D63;
+    --gold:    #F8C833;
+    --gold-ink:#7A5209;
+    --green:   #00D21A;
 
-    --display: 'Frank Ruhl Libre', Georgia, serif;
-    --body: 'Archivo', system-ui, sans-serif;
-    --word: 'Montserrat', Arial, sans-serif; /* reserved for the literal wordmark only */
-    --maxw: 1220px;
+    --font: 'Montserrat', system-ui, sans-serif;
+    --maxw: 1320px;
+    --r-lg: 26px;
+    --r-md: 16px;
   }
 
   html { scroll-behavior: smooth; }
-  body { font-family: var(--body); color: var(--ink); background: var(--paper); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font); color: var(--ink); background: var(--paper); line-height: 1.6; -webkit-font-smoothing: antialiased; }
   img { max-width: 100%; display: block; }
   ::selection { background: var(--gold); color: var(--ink); }
   :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+  a { color: inherit; }
 
-  /* ---------- SHARED PRIMITIVES ---------- */
   .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 40px; }
 
-  .rings { flex-shrink: 0; display: block; }
-  .kicker {
-    display: inline-flex; align-items: center; gap: 10px;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em;
-    text-transform: uppercase; color: var(--gold-ink);
-  }
-  .kicker.on-dark { color: var(--gold); }
+  h1, h2, h3 { font-family: var(--font); font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; text-wrap: balance; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink); }
+  .eyebrow.on-dark { color: var(--gold); }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
 
-  h1, h2, h3, .display { font-family: var(--display); font-weight: 500; letter-spacing: -0.02em; text-wrap: balance; }
-  h2.section-title {
-    font-family: var(--display); font-size: clamp(1.9rem, 3.2vw, 2.7rem);
-    font-weight: 500; color: var(--ink); line-height: 1.15; margin: 14px 0 0;
-  }
-  h2.section-title em { font-style: italic; font-weight: 500; color: var(--gold-ink); line-height: 1.2; padding-bottom: 0.1em; display: inline-block; }
-  p { text-wrap: pretty; }
-
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
-    font-family: var(--body); font-weight: 600; font-size: 0.86rem;
-    letter-spacing: 0.01em; text-decoration: none; cursor: pointer;
-    padding: 15px 28px; border-radius: 2px; border: 1.5px solid transparent;
-    transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  }
-  .btn:active { transform: translateY(0) scale(0.98); }
-  .btn-solid { background: var(--gold); color: var(--ink); }
-  .btn-solid:hover { background: #E4B620; transform: translateY(-2px); }
-  .btn-ink { background: var(--ink); color: #fff; }
-  .btn-ink:hover { background: #1a1a1a; transform: translateY(-2px); }
-  .btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
-  .btn-outline:hover { background: var(--ink); color: #fff; }
-  .btn-ghost-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.35); }
-  .btn-ghost-light:hover { border-color: var(--gold); color: var(--gold); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; white-space: nowrap;
+    font-family: var(--font); font-weight: 700; font-size: 0.86rem; text-decoration: none; cursor: pointer;
+    padding: 16px 30px; border-radius: 999px; border: 1.5px solid transparent;
+    transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
+  .btn:active { transform: scale(0.97); }
+  .btn-gold { background: var(--gold); color: var(--ink); }
+  .btn-gold:hover { background: #fff; transform: translateY(-2px); }
+  .btn-white { background: #fff; color: var(--ink); }
+  .btn-white:hover { background: var(--gold); transform: translateY(-2px); }
+  .btn-outline-dark { background: transparent; color: #fff; border-color: rgba(255,255,255,0.4); }
+  .btn-outline-dark:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+  .btn-outline-light { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-outline-light:hover { background: var(--ink); color: #fff; }
 
   /* ---------- NAV ---------- */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,250,250,0.92); backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--line); height: 74px;
-  }
-  .nav-inner { max-width: var(--maxw); margin: 0 auto; height: 100%; padding: 0 40px;
-    display: flex; align-items: center; justify-content: space-between; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10,10,10,0.88); backdrop-filter: blur(10px); height: 76px; }
+  .nav-inner { max-width: var(--maxw); margin: 0 auto; height: 100%; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; cursor: pointer; }
-  .brand .rings { width: 34px; height: 21px; }
-  .brand-word { font-family: var(--word); font-weight: 700; font-size: 0.72rem; line-height: 1.35;
-    letter-spacing: 0.01em; color: var(--ink); text-transform: uppercase; }
-  .nav-links { display: flex; gap: 26px; align-items: center; }
-  .nav-links a { text-decoration: none; color: var(--ink); font-size: 0.83rem; font-weight: 500;
-    transition: color 0.2s; cursor: pointer; }
-  .nav-links a:hover { color: var(--gold-ink); }
-  .nav-links a.active { color: var(--gold-ink); }
-  .nav-cta { background: var(--gold); color: var(--ink) !important; padding: 10px 18px; border-radius: 2px;
-    font-size: 0.8rem !important; font-weight: 700; }
-  .nav-cta:hover { background: #E4B620; }
+  .brand .rings { width: 32px; height: 20px; flex-shrink: 0; }
+  .brand-word { font-weight: 800; font-size: 0.78rem; line-height: 1.3; letter-spacing: 0.01em; color: #fff; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 30px; align-items: center; }
+  .nav-links a:not(.nav-cta) { text-decoration: none; color: rgba(255,255,255,0.75); font-size: 0.86rem; font-weight: 600; transition: color 0.2s; cursor: pointer; }
+  .nav-links a:not(.nav-cta):hover, .nav-links a.active { color: #fff; }
+  .nav-cta { background: var(--gold); color: var(--ink) !important; padding: 11px 22px; border-radius: 999px; font-size: 0.82rem !important; font-weight: 700; }
+  .nav-cta:hover { background: #fff; }
   .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 6px; }
-  .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); margin: 4px 0; transition: 0.2s; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; }
 
-  /* ---------- PAGE ROUTING ---------- */
   .page { display: none; }
   .page.active { display: block; animation: pageIn 0.5s cubic-bezier(0.16,1,0.3,1) both; }
-  @keyframes pageIn { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none;} }
+  @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
 
-  /* ---------- EVENT STRIP ---------- */
-  .event-strip {
-    background: var(--ink); color: #fff; margin-top: 74px;
-    padding: 12px 24px; font-size: 0.8rem; letter-spacing: 0.01em;
-    display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;
-  }
-  .event-strip strong { color: var(--gold); font-weight: 600; }
-  .event-strip .sep { opacity: 0.28; }
-  .event-strip a { color: var(--gold); font-weight: 600; text-decoration: none; }
-  .event-strip a:hover { text-decoration: underline; }
-  .cd { display: flex; gap: 12px; }
-  .cd .u { text-align: center; }
-  .cd .n { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--gold); display: block; line-height: 1; }
-  .cd .l { font-size: 0.52rem; opacity: 0.55; text-transform: uppercase; letter-spacing: 0.1em; }
+  /* ---------- HERO (full-bleed rounded card) ---------- */
+  .hero-shell { padding: 106px 20px 20px; background: var(--ink); }
+  .hero { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 640px;
+    display: flex; align-items: flex-end; }
+  .hero img.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+  .hero::after { content: ''; position: absolute; inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.05) 70%); }
+  .hero-content { position: relative; z-index: 2; padding: 48px; max-width: 640px; }
+  .hero-content .eyebrow { color: var(--gold); margin-bottom: 16px; }
+  .hero-content h1 { color: #fff; font-size: clamp(2.2rem, 4.6vw, 3.6rem); margin-bottom: 16px; }
+  .hero-content p { color: rgba(255,255,255,0.82); font-size: 1.05rem; max-width: 480px; margin-bottom: 28px; }
+  .next-event { position: absolute; z-index: 3; right: 32px; bottom: 32px; width: 220px; background: rgba(15,15,15,0.72);
+    backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.14); border-radius: var(--r-md); overflow: hidden;
+    text-decoration: none; display: block; transition: transform 0.2s ease; }
+  .next-event:hover { transform: translateY(-3px); }
+  .next-event img { height: 110px; width: 100%; object-fit: cover; }
+  .next-event .ne-body { padding: 14px 16px 16px; }
+  .next-event .ne-tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+  .next-event .ne-tag .live { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+  .next-event .ne-title { color: #fff; font-weight: 700; font-size: 0.86rem; }
 
-  /* ---------- HERO ---------- */
-  .hero { padding: 64px 0 44px; }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
-  .hero-name {
-    font-family: var(--display); font-weight: 500;
-    font-size: clamp(2.6rem, 5.2vw, 4.2rem); line-height: 1.02; letter-spacing: -0.025em;
-    color: var(--ink); margin: 20px 0 20px;
-  }
-  .hero-name .ln2 { font-style: italic; color: var(--gold-ink); display: block; line-height: 1.2; padding-bottom: 0.08em; }
-  .hero-sub { font-size: 1.06rem; color: var(--mid); max-width: 480px; margin-bottom: 30px; }
-  .hero-sub b { color: var(--ink); font-weight: 600; }
-  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  /* ---------- CAROUSEL PRIMITIVES ---------- */
+  .carousel-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; gap: 20px; }
+  .carousel-head h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
+  .carousel-nav { display: flex; gap: 8px; flex-shrink: 0; }
+  .cnav-btn { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper);
+    display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; flex-shrink: 0; }
+  .cnav-btn:hover { background: var(--ink); border-color: var(--ink); }
+  .cnav-btn:hover svg { stroke: #fff; }
+  .cnav-btn svg { width: 16px; height: 16px; stroke: var(--ink); }
+  .on-dark .cnav-btn { border-color: rgba(255,255,255,0.2); background: transparent; }
+  .on-dark .cnav-btn svg { stroke: #fff; }
+  .on-dark .cnav-btn:hover { background: #fff; }
+  .on-dark .cnav-btn:hover svg { stroke: var(--ink); }
 
-  /* Portrait */
-  .portrait { position: relative; }
-  .portrait .frame {
-    aspect-ratio: 4/5; border-radius: 2px; overflow: hidden; position: relative;
-    box-shadow: 0 24px 60px -24px rgba(10,10,10,0.35);
-  }
-  .portrait .frame::before, .portrait .frame::after {
-    content: ''; position: absolute; width: 34px; height: 34px; z-index: 2; pointer-events: none;
-  }
-  .portrait .frame::before { top: 14px; left: 14px; border-top: 3px solid var(--green); border-left: 3px solid var(--green); }
-  .portrait .frame::after { bottom: 14px; right: 14px; border-bottom: 3px solid var(--gold); border-right: 3px solid var(--gold); }
-  .portrait-badge {
-    position: absolute; left: -20px; bottom: 36px; background: var(--surface);
-    border: 1px solid var(--line);
-    color: var(--ink); padding: 16px 20px; max-width: 230px; border-radius: 2px;
-  }
-  .portrait-badge b { font-family: var(--display); font-weight: 500; font-size: 0.96rem; display: block; line-height: 1.3; }
-  .portrait-badge span { font-size: 0.74rem; color: var(--mid); }
+  .carousel-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 6px;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track > * { scroll-snap-align: start; flex-shrink: 0; }
 
-  /* Photo placeholder — an honest, labeled slot carrying her real mark (not a stand-in stock photo) */
-  .photo-ph {
-    width: 100%; height: 100%; min-height: 100%;
-    background: linear-gradient(165deg, #17181a 0%, #0A0A0A 100%);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 16px; text-align: center; color: rgba(250,250,250,0.4);
-    font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 24px;
-  }
-  .photo-ph .rings { width: 68px; height: 42px; opacity: 0.9; }
-  .photo-ph .cap { max-width: 220px; line-height: 1.6; font-family: var(--body); }
+  /* ---------- SECTION: ways-carousel cards ---------- */
+  .ways { background: var(--ink); padding: 90px 0; }
+  .way-card { position: relative; width: 300px; height: 380px; border-radius: var(--r-md); overflow: hidden; text-decoration: none; display: block; }
+  .way-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .way-card:hover img { transform: scale(1.05); }
+  .way-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%); }
+  .way-card .wc-body { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; padding: 22px; }
+  .way-card .wc-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .way-card h3 { color: #fff; font-size: 1.3rem; margin-bottom: 6px; }
+  .way-card p { color: rgba(255,255,255,0.7); font-size: 0.84rem; }
 
-  /* ---------- ROLES STRIP (signature motif) ---------- */
-  .roles { background: var(--ink); color: #fff; }
-  .roles-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
-  .role {
-    padding: 38px 30px; border-right: 1px solid rgba(255,255,255,0.08);
-    display: flex; flex-direction: column; gap: 8px;
-  }
-  .role:last-child { border-right: none; }
-  .role .rings { width: 26px; height: 16px; }
-  .role h3 { font-family: var(--display); font-weight: 500; font-size: 1.2rem; color: #fff; }
-  .role p { font-size: 0.82rem; color: rgba(255,255,255,0.56); }
+  /* ---------- FULL-BLEED STATEMENT ---------- */
+  .statement { position: relative; min-height: 560px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+  .statement img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .statement::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.65)); }
+  .statement-inner { position: relative; z-index: 2; max-width: 720px; padding: 0 32px; }
+  .statement h2 { color: #fff; font-size: clamp(1.8rem, 3.6vw, 3rem); margin-bottom: 16px; }
+  .statement p { color: rgba(255,255,255,0.82); font-size: 1.05rem; margin-bottom: 28px; }
 
-  /* ---------- ABOUT ---------- */
-  .about { padding: 96px 0; }
-  .about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 68px; align-items: center; }
-  .about-photo { aspect-ratio: 4/5; border-radius: 2px; overflow: hidden; position: relative; }
-  .about-cols { columns: 2; column-gap: 44px; column-rule: 1px solid var(--line); margin-top: 16px; }
-  .about-cols p { color: var(--mid); font-size: 0.96rem; break-inside: avoid; margin-bottom: 16px; }
-  .cred { display: flex; align-items: baseline; gap: 14px; padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 0.9rem; color: var(--ink); }
-  .cred:first-of-type { border-top: 1px solid var(--line); margin-top: 26px; }
-  .cred .k { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold-ink); width: 84px; flex-shrink: 0; }
-  .cred .ph { color: var(--mid); font-style: italic; }
+  /* ---------- PILLARS ---------- */
+  .pillars { padding: 100px 0; }
+  .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .pillars-list { list-style: none; }
+  .pillars-list li { font-size: clamp(1.8rem, 3.4vw, 2.7rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15;
+    color: var(--ink); padding: 4px 0; opacity: 0.28; transition: opacity 0.2s; }
+  .pillars-list li:hover, .pillars-list li.hl { opacity: 1; color: var(--gold-ink); }
+  .pillars-photo { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/5; }
 
-  /* ---------- PULL QUOTE (editorial break) ---------- */
-  .pull { padding: 88px 0; background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .pull blockquote {
-    font-family: var(--display); font-style: italic; font-weight: 400;
-    font-size: clamp(1.5rem, 3vw, 2.3rem); line-height: 1.35; color: var(--ink);
-    max-width: 880px; margin: 0 auto; text-align: center; text-wrap: balance;
-  }
-  .pull .rings { margin: 0 auto 24px; width: 40px; height: 25px; }
+  /* ---------- TESTIMONIAL FULL-BLEED ---------- */
+  .quote-feature { position: relative; min-height: 620px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+  .quote-feature img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .quote-side { background: var(--ink); color: #fff; display: flex; align-items: center; padding: 60px; }
+  .quote-side blockquote { font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 700; line-height: 1.35; letter-spacing: -0.01em; }
+  .quote-avatars { display: flex; gap: 14px; margin-top: 32px; flex-wrap: wrap; }
+  .qav { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); cursor: pointer; }
+  .qav.active { border-color: var(--gold); background: rgba(248,200,51,0.08); }
+  .qav .qav-img { width: 34px; height: 34px; border-radius: 50%; overflow: hidden; flex-shrink: 0; }
+  .qav .qav-img img { width: 100%; height: 100%; object-fit: cover; }
+  .qav-name { font-size: 0.76rem; font-weight: 700; color: #fff; }
+  .qav-role { font-size: 0.66rem; color: rgba(255,255,255,0.5); }
 
-  /* ---------- SERVICES (asymmetric: featured + pair, not 3 equal cards) ---------- */
-  .services { padding: 96px 0; }
-  .svc-head { max-width: 620px; margin-bottom: 48px; }
-  .svc-head p { color: var(--mid); margin-top: 12px; }
-  .svc-stack { display: grid; gap: 20px; }
-  .svc-feature {
-    display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
-    background: var(--ink); color: #fff; padding: 44px; border-radius: 2px;
-  }
-  .svc-feature .tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
-  .svc-feature h3 { font-family: var(--display); font-weight: 500; font-size: 1.6rem; margin: 10px 0 12px; }
-  .svc-feature p { color: rgba(255,255,255,0.62); font-size: 0.94rem; }
-  .svc-feature .mark { width: 76px; height: 47px; }
-  .svc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .svc-card { border: 1px solid var(--line); padding: 32px 28px; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1); }
-  .svc-card:hover { transform: translateY(-3px); }
-  .svc-card h3 { font-family: var(--display); font-weight: 500; font-size: 1.2rem; color: var(--ink); margin-bottom: 10px; }
-  .svc-card p { color: var(--mid); font-size: 0.9rem; }
-  .link { display: inline-block; margin-top: 16px; font-size: 0.8rem; font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--gold); padding-bottom: 2px; }
-  .link:hover { color: var(--gold-ink); }
+  /* ---------- BIO INTRO ---------- */
+  .bio { padding: 100px 0; }
+  .bio-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 60px; align-items: center; }
+  .bio-photo { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/5; }
+  .bio h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin: 14px 0 18px; }
+  .bio p { color: var(--mid); font-size: 1rem; max-width: 46ch; margin-bottom: 26px; }
 
-  /* ---------- MASTERCLASS (dark feature) ---------- */
-  .mc { background: var(--ink); padding: 92px 0; }
-  .mc-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-  .mc h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.9rem, 3vw, 2.5rem); color: #fff; line-height: 1.18; margin: 12px 0 14px; }
-  .mc h2 em { font-style: italic; color: var(--gold); padding-bottom: 0.1em; display: inline-block; }
-  .mc-sub { color: rgba(255,255,255,0.6); font-size: 0.96rem; margin-bottom: 28px; }
-  .mc-detail { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 32px; }
-  .mc-detail .d { font-size: 0.84rem; font-weight: 600; color: var(--gold); display: flex; align-items: center; gap: 8px; }
-  .mc-detail svg { width: 15px; height: 15px; flex-shrink: 0; }
-  .mc-detail .d span { color: rgba(255,255,255,0.6); font-weight: 400; }
-  .outcomes { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
-  .outcome { display: flex; gap: 14px; align-items: flex-start; }
-  .outcome .chk { width: 21px; height: 21px; flex-shrink: 0; border-radius: 50%; margin-top: 2px;
-    background: rgba(0,210,26,0.14); border: 1px solid var(--green);
-    display: flex; align-items: center; justify-content: center; }
-  .outcome .chk svg { width: 10px; height: 10px; color: var(--green); }
-  .outcome p { color: rgba(255,255,255,0.76); font-size: 0.9rem; }
+  /* ---------- RESULTS / STATS ---------- */
+  .results { padding: 100px 0; background: var(--off); }
+  .results-top { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-bottom: 56px; }
+  .results h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); }
+  .results-stats { display: flex; gap: 40px; margin: 22px 0 26px; }
+  .rstat b { display: block; font-size: 2.4rem; font-weight: 800; color: var(--ink); line-height: 1; }
+  .rstat span { font-size: 0.78rem; color: var(--mid); }
+  .rcard { width: 270px; border-radius: var(--r-md); overflow: hidden; background: var(--paper); border: 1px solid var(--line); }
+  .rcard img { width: 100%; height: 200px; object-fit: cover; }
+  .rcard .rc-body { padding: 18px 20px 22px; }
+  .rcard p { font-size: 0.88rem; color: var(--ink); margin-bottom: 14px; min-height: 66px; }
+  .rcard .rc-name { font-size: 0.82rem; font-weight: 700; }
+  .rcard .rc-role { font-size: 0.74rem; color: var(--mid); }
 
-  .mc-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09); border-radius: 2px; padding: 28px; }
-  .mc-card .label { font-size: 0.66rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: 16px; }
-  .agenda-item { display: grid; grid-template-columns: 70px 1fr; gap: 16px; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.07); }
-  .agenda-item:last-child { border-bottom: none; }
-  .agenda-time { font-size: 0.73rem; font-weight: 600; color: var(--gold); padding-top: 2px; }
-  .agenda-title { font-size: 0.87rem; font-weight: 600; color: #fff; }
-  .agenda-desc { font-size: 0.77rem; color: rgba(255,255,255,0.44); line-height: 1.5; margin-top: 3px; }
-  .mc-cta { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
-  .mc-note { font-size: 0.74rem; color: rgba(255,255,255,0.32); }
+  /* ---------- EVENT DETAIL CARD ---------- */
+  .event { padding: 100px 0 40px; }
+  .event-card { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 460px; display: flex; align-items: flex-end; }
+  .event-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  .event-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.15) 60%); }
+  .event-inner { position: relative; z-index: 2; padding: 44px; width: 100%; }
+  .event-inner h3 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.3rem); margin: 14px 0 12px; max-width: 520px; }
+  .event-inner p.desc { color: rgba(255,255,255,0.78); max-width: 460px; margin-bottom: 24px; }
+  .event-meta { display: flex; gap: 32px; margin-top: 26px; flex-wrap: wrap; }
+  .event-meta div { color: rgba(255,255,255,0.5); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .event-meta div span { display: block; color: #fff; font-size: 0.86rem; font-weight: 600; text-transform: none; letter-spacing: 0; margin-top: 4px; }
 
-  /* ---------- TESTIMONIALS (featured + stacked pair) ---------- */
-  .testi { padding: 96px 0; background: var(--surface); border-top: 1px solid var(--line); }
-  .testi-head { max-width: 560px; margin-bottom: 40px; }
-  .testi-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; }
-  .tcard { background: var(--paper); border: 1px solid var(--line); border-radius: 2px; padding: 30px 26px; display: flex; flex-direction: column; }
-  .tcard.featured { padding: 40px 36px; justify-content: center; }
-  .tstack { display: flex; flex-direction: column; gap: 20px; }
-  .ttext { font-family: var(--display); font-weight: 400; font-style: italic; font-size: 1.05rem; color: var(--ink); line-height: 1.6; margin-bottom: 20px; }
-  .tcard:not(.featured) .ttext { font-size: 0.94rem; margin-bottom: 16px; }
-  .tauthor { display: flex; align-items: center; gap: 12px; }
-  .tav { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--gold); border: 2px solid var(--green); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.85rem; flex-shrink: 0; }
-  .tname { font-weight: 600; font-size: 0.85rem; color: var(--ink); }
-  .trole { font-size: 0.74rem; color: var(--mid); }
+  /* ---------- PRIVATE ADVISORY (black + gold) ---------- */
+  .advisory { background: var(--ink); padding: 100px 0; overflow: hidden; }
+  .advisory-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 0; align-items: stretch; }
+  .adv-badge { background: var(--gold); border-radius: var(--r-lg); padding: 36px 30px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .adv-badge .rings { width: 40px; height: 25px; }
+  .adv-badge span { font-weight: 800; text-transform: uppercase; letter-spacing: 0.02em; font-size: 1.05rem; color: var(--ink); line-height: 1.2; }
+  .adv-right { padding: 0 0 0 56px; }
+  .adv-right h2 { color: #fff; font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 20px; }
+  .adv-stats { display: flex; gap: 40px; margin-bottom: 20px; }
+  .adv-stats b { display: block; font-size: 2rem; font-weight: 800; color: var(--gold); line-height: 1; }
+  .adv-stats span { font-size: 0.76rem; color: rgba(255,255,255,0.55); }
+  .adv-right p.body { color: rgba(255,255,255,0.68); max-width: 46ch; margin-bottom: 26px; }
+  .adv-btns { display: flex; flex-direction: column; gap: 12px; max-width: 240px; margin-bottom: 30px; }
+  .adv-photo { border-radius: var(--r-md); overflow: hidden; aspect-ratio: 16/10; }
+  .adv-photo img { width: 100%; height: 100%; object-fit: cover; }
 
-  /* ---------- INSIGHTS ---------- */
-  .insights { padding: 96px 0; }
-  .insights-head { max-width: 620px; margin-bottom: 36px; }
-  .insights-head p { color: var(--mid); margin-top: 10px; }
-  .cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-  .cat { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 7px 16px; border-radius: 2px; font-size: 0.76rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; }
+  /* ---------- INSIGHTS carousel ---------- */
+  .insights { padding: 100px 0; }
+  .cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 30px; }
+  .cat { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 8px 18px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .cat.active, .cat:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto; gap: 22px; }
-  .art { background: var(--surface); border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1); }
-  .art:hover { transform: translateY(-3px); }
-  .art.feature { grid-column: span 2; flex-direction: row; }
-  .art.feature .thumb { width: 46%; height: auto; }
-  .art.feature .body { width: 54%; }
-  .art .thumb { height: 150px; position: relative; overflow: hidden; }
-  .art .thumb .swatch { width: 100%; height: 100%; display: flex; align-items: flex-end; padding: 14px; background: linear-gradient(155deg, #17181a, #0A0A0A); }
-  .art .thumb .swatch .rings { width: 32px; height: 20px; }
-  .art .body { padding: 20px 20px 0; flex: 1; }
-  .art .tag { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink); }
-  .art h3 { font-family: var(--display); font-weight: 500; font-size: 1.05rem; color: var(--ink); line-height: 1.35; margin: 8px 0; }
-  .art.feature h3 { font-size: 1.35rem; }
-  .art p { color: var(--mid); font-size: 0.82rem; }
-  .art .link { display: block; padding: 15px 20px; margin-top: 12px; border-top: 1px solid var(--line); color: var(--gold-ink); font-size: 0.79rem; font-weight: 600; text-decoration: none; border-bottom: none; }
-  .art .link:hover { color: var(--ink); }
+  .art-card { width: 300px; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; background: var(--paper); }
+  .art-card .thumb { height: 170px; background: linear-gradient(155deg, #1c1c1c, #0A0A0A); display: flex; align-items: flex-end; padding: 16px; }
+  .art-card .thumb .rings { width: 30px; height: 19px; }
+  .art-card .abody { padding: 20px 20px 22px; }
+  .art-card .tag { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-ink); }
+  .art-card h3 { font-size: 1.02rem; font-weight: 700; margin: 8px 0; letter-spacing: -0.01em; }
+  .art-card p { font-size: 0.85rem; color: var(--mid); margin-bottom: 14px; }
+  .art-card .rlink { font-size: 0.8rem; font-weight: 700; color: var(--gold-ink); text-decoration: none; }
+
+  /* ---------- CLOSING CTA ---------- */
+  .closing { position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; margin: 0 20px 20px; border-radius: var(--r-lg); }
+  .closing img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  .closing::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.5), rgba(0,0,0,0.72)); }
+  .closing-inner { position: relative; z-index: 2; max-width: 640px; padding: 0 32px; }
+  .closing h2 { color: #fff; font-size: clamp(1.9rem, 3.6vw, 2.8rem); margin-bottom: 12px; }
+  .closing p { color: rgba(255,255,255,0.75); margin-bottom: 26px; }
 
   /* ---------- OPTIN ---------- */
-  .optin { background: var(--ink); padding: 80px 0; text-align: center; }
-  .optin h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: #fff; max-width: 600px; margin: 0 auto 12px; line-height: 1.25; }
-  .optin p.lead { color: rgba(255,255,255,0.6); font-size: 0.94rem; margin-bottom: 30px; max-width: 540px; margin-left: auto; margin-right: auto; }
+  .optin { padding: 80px 0; text-align: center; background: var(--off); }
+  .optin h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); max-width: 600px; margin: 0 auto 12px; }
+  .optin p.lead { color: var(--mid); font-size: 0.94rem; margin-bottom: 30px; max-width: 540px; margin-left: auto; margin-right: auto; }
   .optin-form { display: flex; gap: 10px; max-width: 520px; margin: 0 auto; align-items: flex-end; }
   .field { flex: 1; text-align: left; display: flex; flex-direction: column; gap: 6px; }
-  .field label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; color: rgba(255,255,255,0.5); }
-  .field input { padding: 13px 15px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.22); border-radius: 2px; color: #fff; font-size: 0.88rem; font-family: var(--body); outline: none; transition: border-color 0.2s; width: 100%; }
-  .field input::placeholder { color: rgba(255,255,255,0.35); }
+  .field label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.02em; color: var(--mid); }
+  .field input { padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); font-size: 0.88rem; font-family: var(--font); outline: none; transition: border-color 0.2s; width: 100%; }
   .field input:focus { border-color: var(--gold); }
-  .optin-note { color: rgba(255,255,255,0.3); font-size: 0.72rem; margin-top: 14px; }
+  .optin-note { color: var(--mid); font-size: 0.72rem; margin-top: 14px; }
 
   /* ---------- FOOTER ---------- */
-  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 64px 0 34px; border-top: 1px solid rgba(255,255,255,0.06); }
-  .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
-  .footer-brand { display: flex; align-items: center; gap: 14px; }
-  .footer-brand .rings { width: 46px; height: 28px; }
-  .footer-word { font-family: var(--word); font-weight: 700; font-size: 0.92rem; line-height: 1.4; letter-spacing: 0.01em; color: #fff; text-transform: uppercase; }
-  .footer-tag { font-size: 0.85rem; line-height: 1.8; max-width: 320px; margin-top: 18px; }
-  .fc h4 { font-size: 0.64rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
-  .fc a { display: block; color: rgba(255,255,255,0.5); font-size: 0.85rem; text-decoration: none; margin-bottom: 10px; cursor: pointer; transition: color 0.2s; }
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 70px 0 32px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 40px; margin-bottom: 50px; }
+  .footer-brand { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+  .footer-brand .rings { width: 42px; height: 26px; }
+  .footer-word { font-weight: 800; font-size: 0.86rem; line-height: 1.4; color: #fff; text-transform: uppercase; }
+  .footer-tag { font-size: 0.85rem; line-height: 1.8; max-width: 300px; }
+  .fc h4 { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+  .fc a { display: block; color: rgba(255,255,255,0.55); font-size: 0.86rem; text-decoration: none; margin-bottom: 12px; cursor: pointer; transition: color 0.2s; }
   .fc a:hover { color: var(--gold); }
-  .social { display: flex; gap: 10px; }
-  .soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.66rem; font-weight: 700; transition: all 0.2s; }
+  .fc p { font-size: 0.8rem; line-height: 1.6; color: rgba(255,255,255,0.4); }
+  .social { display: flex; gap: 10px; margin-top: 6px; }
+  .soc { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.68rem; font-weight: 700; transition: all 0.2s; }
   .soc:hover { border-color: var(--gold); color: var(--gold); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; font-size: 0.74rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 26px; font-size: 0.76rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
 
   /* ---------- GALLERY PAGE ---------- */
-  .gal-hero { padding: 120px 0 58px; background: var(--ink); color: #fff; }
-  .gal-hero h1 { font-family: var(--display); font-weight: 500; font-size: clamp(2.2rem, 4.2vw, 3.2rem); color: #fff; line-height: 1.12; margin: 16px 0 14px; }
-  .gal-hero h1 em { font-style: italic; color: var(--gold); padding-bottom: 0.08em; display: inline-block; }
-  .gal-hero p { color: rgba(255,255,255,0.6); max-width: 540px; font-size: 0.98rem; }
-  .gal-filters { position: sticky; top: 74px; z-index: 40; background: rgba(250,250,250,0.94); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .gal-hero-shell { padding: 106px 20px 20px; background: var(--ink); }
+  .gal-hero { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 420px; display: flex; align-items: flex-end; }
+  .gal-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  .gal-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.82), rgba(0,0,0,0.1)); }
+  .gal-hero-inner { position: relative; z-index: 2; padding: 44px; }
+  .gal-hero-inner h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); margin: 14px 0 12px; }
+  .gal-hero-inner p { color: rgba(255,255,255,0.75); max-width: 520px; }
+  .gal-filters { position: sticky; top: 76px; z-index: 40; background: rgba(255,255,255,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
   .gal-filters .wrap { display: flex; gap: 8px; flex-wrap: wrap; padding-top: 16px; padding-bottom: 16px; }
-  .gfilter { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 8px 16px; border-radius: 2px; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+  .gfilter { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 9px 18px; border-radius: 999px; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
   .gfilter.active, .gfilter:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
-
-  .gal-section { padding: 52px 0 88px; }
-  .masonry { columns: 3; column-gap: 20px; }
-  .gitem { break-inside: avoid; margin-bottom: 20px; border-radius: 2px; overflow: hidden; position: relative; background: var(--ink); }
-  .gitem .photo-ph { min-height: 0; }
-  .gitem.tall .photo-ph { aspect-ratio: 3/4; }
-  .gitem.wide .photo-ph { aspect-ratio: 4/3; }
-  .gitem.sq .photo-ph { aspect-ratio: 1/1; }
-  .gitem .meta { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 18px 16px;
-    background: linear-gradient(to top, rgba(10,10,10,0.92), transparent);
-    opacity: 0; transition: opacity 0.25s; }
+  .gal-section { padding: 52px 20px 90px; }
+  .masonry { columns: 3; column-gap: 20px; max-width: var(--maxw); margin: 0 auto; }
+  .gitem { break-inside: avoid; margin-bottom: 20px; border-radius: var(--r-md); overflow: hidden; position: relative; background: var(--ink); }
+  .gitem img { width: 100%; display: block; }
+  .gitem .meta { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 18px 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85), transparent); opacity: 0; transition: opacity 0.25s; }
   .gitem:hover .meta { opacity: 1; }
   .gitem .meta .s { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
   .gitem .meta .c { font-size: 0.86rem; color: #fff; margin-top: 3px; }
-  .gal-cta { background: var(--surface); border-top: 1px solid var(--line); padding: 68px 0; text-align: center; }
-  .gal-cta h2 { font-family: var(--display); font-weight: 500; font-size: clamp(1.6rem, 2.6vw, 2.1rem); color: var(--ink); margin-bottom: 18px; }
+  .gal-cta { background: var(--off); padding: 70px 20px; text-align: center; border-radius: var(--r-lg); margin: 0 20px 20px; }
+  .gal-cta h2 { font-size: clamp(1.6rem, 2.6vw, 2.1rem); margin-bottom: 20px; }
 
-  /* ---------- MOTION ---------- */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: none;} }
-  .hero-left > * { animation: fadeUp 0.65s cubic-bezier(0.16,1,0.3,1) both; }
-  .hero-left > *:nth-child(1){animation-delay:.04s}
-  .hero-left > *:nth-child(2){animation-delay:.12s}
-  .hero-left > *:nth-child(3){animation-delay:.2s}
-  .hero-left > *:nth-child(4){animation-delay:.28s}
-  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
   .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } .reveal { opacity: 1; transform: none; } }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-    .reveal { opacity: 1; transform: none; }
-  }
-
-  /* ---------- RESPONSIVE ---------- */
   @media (max-width: 940px) {
-    .wrap, .nav-inner { padding: 0 22px; }
-    .nav-links { position: fixed; top: 74px; left: 0; right: 0; background: var(--paper);
-      flex-direction: column; align-items: flex-start; gap: 0; padding: 8px 22px 20px;
-      border-bottom: 1px solid var(--line); display: none; }
+    .wrap, .nav-inner { padding: 0 20px; }
+    .nav-links { position: fixed; top: 76px; left: 0; right: 0; background: var(--ink);
+      flex-direction: column; align-items: flex-start; gap: 0; padding: 8px 20px 20px; display: none; }
     .nav-links.open { display: flex; }
-    .nav-links a { padding: 12px 0; width: 100%; border-bottom: 1px solid var(--line); font-size: 0.95rem; }
-    .nav-links a.nav-cta { border: none; margin-top: 10px; text-align: center; justify-content: center; }
+    .nav-links a:not(.nav-cta) { padding: 14px 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 0.95rem; }
+    .nav-links a.nav-cta { margin-top: 12px; text-align: center; justify-content: center; }
     .nav-toggle { display: block; }
-    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
-    .portrait { order: -1; max-width: 380px; }
-    .portrait-badge { position: static; left: 0; margin-top: 16px; max-width: none; }
-    .roles-inner { grid-template-columns: repeat(2, 1fr); }
-    .role:nth-child(2) { border-right: none; }
-    .role:nth-child(1), .role:nth-child(2) { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .about-grid { grid-template-columns: 1fr; gap: 36px; }
-    .about-photo { max-width: 380px; }
-    .about-cols { columns: 1; }
-    .svc-feature { grid-template-columns: 1fr; gap: 24px; text-align: left; }
-    .svc-feature .mark { width: 56px; height: 35px; }
-    .svc-pair { grid-template-columns: 1fr; }
-    .testi-grid { grid-template-columns: 1fr; }
-    .art-grid { grid-template-columns: 1fr; }
-    .art.feature { grid-column: span 1; flex-direction: column; }
-    .art.feature .thumb, .art.feature .body { width: 100%; }
-    .mc-inner { grid-template-columns: 1fr; gap: 40px; }
+    .hero-shell { padding-top: 96px; }
+    .hero { min-height: 560px; }
+    .hero-content { padding: 30px; }
+    .next-event { display: none; }
+    .pillars-grid, .bio-grid, .results-top, .advisory-grid { grid-template-columns: 1fr; gap: 32px; }
+    .quote-feature { grid-template-columns: 1fr; min-height: 0; }
+    .quote-feature img { height: 340px; }
+    .quote-side { padding: 40px 30px; }
+    .adv-badge { border-radius: var(--r-lg); }
+    .adv-right { padding: 40px 30px 0; }
+    .event-inner { padding: 30px; }
+    .event-meta { gap: 20px; }
     .masonry { columns: 1; }
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .event-strip { font-size: 0.72rem; gap: 10px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
     .optin-form { flex-direction: column; align-items: stretch; }
-    .about, .services, .testi, .insights, .mc, .pull { padding: 60px 0; }
+    .ways, .pillars, .bio, .results, .event, .advisory, .insights { padding: 60px 0; }
   }
-  @media (min-width: 941px) and (max-width: 1120px) {
-    .masonry { columns: 2; }
-  }
+  @media (min-width: 941px) and (max-width: 1180px) { .masonry { columns: 2; } }
 </style>
 </head>
 <body>
 
-<!-- ============ NAV ============ -->
 <nav>
   <div class="nav-inner">
-    <a class="brand" data-nav="home" aria-label="Dr. Omowunmi Olalere, home">
-      <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/>
-        <circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/>
-      </svg>
+    <a class="brand" data-nav="home">
+      <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
       <span class="brand-word">Omowunmi<br>Olalere</span>
     </a>
     <div class="nav-links" id="navLinks">
@@ -407,196 +331,222 @@
   </div>
 </nav>
 
-<!-- ================================================= -->
-<!-- ==================  HOME PAGE  ================== -->
-<!-- ================================================= -->
 <div class="page active" id="page-home">
 
-  <!-- EVENT STRIP -->
-  <div class="event-strip">
-    <strong>The Business Transition Masterclass</strong>
-    <span class="sep">|</span>
-    <span>Saturday, 19 September 2026, Lagos</span>
-    <span class="sep">|</span>
-    <div class="cd">
-      <div class="u"><span class="n" id="cd-days">—</span><span class="l">Days</span></div>
-      <div class="u"><span class="n" id="cd-hours">—</span><span class="l">Hrs</span></div>
-      <div class="u"><span class="n" id="cd-mins">—</span><span class="l">Min</span></div>
-    </div>
-    <a data-scroll="masterclass">Reserve Your Seat →</a>
-  </div>
-
   <!-- HERO -->
-  <header class="hero">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="hero-left">
-          <span class="kicker">
-            <svg class="rings" width="20" height="12" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="6"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="6"/></svg>
-            Business Advisor to Executives in Transition
-          </span>
-          <h1 class="hero-name">Omowunmi<span class="ln2">Olalere</span></h1>
-          <p class="hero-sub">A Ph.D. advisor and founder of Numero Group, <b>Dr. Omowunmi Olalere</b> helps senior professionals turn 20+ years of career experience into a business that lasts.</p>
-          <div class="hero-btns">
-            <a class="btn btn-solid" data-scroll="masterclass">Reserve Your Seat ↗</a>
-            <a class="btn btn-outline" data-scroll="services">See How I Help</a>
-          </div>
-        </div>
-        <div class="portrait">
-          <div class="frame">
-            <!-- SWAP: replace this .photo-ph div with <img src="portrait.jpg" alt="Dr. Omowunmi Olalere"> -->
-            <div class="photo-ph">
-              <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
-              <span class="cap">Primary editorial portrait<br>(shoulders-up, warm light)</span>
-            </div>
-          </div>
-          <div class="portrait-badge">
-            <b>Not a generic startup coach.</b>
-            <span>An advisor for people with capital, experience, and a decision to make.</span>
-          </div>
+  <header class="hero-shell">
+    <div class="hero">
+      <img class="hero-bg" src="images/DAS1R8A8622B.jpg" alt="Dr. Omowunmi Olalere, portrait">
+      <div class="hero-content hero-left">
+        <span class="eyebrow">Business Advisor to Executives in Transition</span>
+        <h1>Your career built the platform. Now build the business.</h1>
+        <p>Dr. Omowunmi Olalere helps senior professionals and retirees turn 20+ years of experience into a business that lasts.</p>
+        <div class="hero-btns" style="display:flex; gap:12px; flex-wrap:wrap;">
+          <a class="btn btn-gold" data-scroll="masterclass">Reserve Your Seat</a>
+          <a class="btn btn-outline-dark" data-scroll="services">See How I Help</a>
         </div>
       </div>
+      <a class="next-event" data-scroll="masterclass">
+        <img src="images/DAS1R8A8444B.jpg" alt="Preview of the Business Transition Masterclass">
+        <div class="ne-body">
+          <div class="ne-tag"><span class="live"></span>Next Event</div>
+          <div class="ne-title">The Business Transition Masterclass</div>
+        </div>
+      </a>
     </div>
   </header>
 
-  <!-- ROLES (signature motif) -->
-  <section class="roles">
-    <div class="wrap"><div class="roles-inner">
-      <div class="role"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="5"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="5"/></svg><h3>Advisor</h3><p>One-to-one counsel for executives entering business for the first time.</p></div>
-      <div class="role"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="5"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="5"/></svg><h3>Speaker</h3><p>Keynotes and boardroom sessions on transition, capital, and enterprise.</p></div>
-      <div class="role"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="5"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="5"/></svg><h3>Founder</h3><p>Founder and CEO of Numero Group and the My Business and I platform.</p></div>
-      <div class="role"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="5"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="5"/></svg><h3>Educator</h3><p>Masterclasses and writing that turn hard-won judgement into method.</p></div>
-    </div></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="about-grid reveal">
-        <div class="about-photo">
-          <!-- SWAP: replace with <img src="about.jpg" alt="Dr. Olalere speaking"> -->
-          <div class="photo-ph">
-            <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
-            <span class="cap">Secondary portrait<br>(seated or at a lectern)</span>
-          </div>
-        </div>
+  <!-- WAYS TO WORK WITH HER -->
+  <section class="ways" id="services">
+    <div class="wrap on-dark">
+      <div class="carousel-head reveal">
         <div>
-          <h2 class="section-title">She has sat on <em>both sides</em> of this table.</h2>
-          <div class="about-cols">
-            <p>Dr. Omowunmi Olalere has built businesses from scratch, advised executives through the corporate-to-business transition, and spent years studying what separates post-career ventures that thrive from those that quietly drain what was earned over a lifetime.</p>
-            <p>She founded Numero Group and the <em>My Business and I</em> platform on one conviction: the professionals who have earned the most are often given the least guidance at the moment it matters most, the point of transition.</p>
-          </div>
-          <div class="cred"><span class="k">Education</span><span class="ph">Ph.D., [Field], [Institution]</span></div>
-          <div class="cred"><span class="k">Founder</span><span>Numero Group, Est. [Year]</span></div>
-          <div class="cred"><span class="k">Featured</span><span class="ph">[Notable media feature or speaking credential]</span></div>
-          <a class="link" data-nav="gallery" style="margin-top:24px">See the Gallery</a>
+          <span class="eyebrow on-dark">Three Ways to Work With Her</span>
+          <h2 style="color:#fff; margin-top:10px;">A path for every kind of decision.</h2>
         </div>
+        <div class="carousel-nav">
+          <button class="cnav-btn" data-scroll-track="waysTrack" data-dir="-1" aria-label="Scroll left"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="cnav-btn" data-scroll-track="waysTrack" data-dir="1" aria-label="Scroll right"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      <div class="carousel-track reveal" id="waysTrack">
+        <a class="way-card" data-scroll="masterclass">
+          <img src="images/DAS1R8A8408B.jpg" alt="Dr. Omowunmi Olalere, standing portrait">
+          <div class="wc-body"><div class="wc-tag">Flagship</div><h3>The Masterclass</h3><p>A one-day working session, leave with a written business-entry plan.</p></div>
+        </a>
+        <a class="way-card" data-scroll="contact">
+          <img src="images/DAS1R8A8552B.jpg" alt="Dr. Omowunmi Olalere, seated portrait">
+          <div class="wc-body"><div class="wc-tag">Private</div><h3>Advisory</h3><p>One-to-one counsel for a significant capital or business decision.</p></div>
+        </a>
+        <a class="way-card" data-scroll="contact">
+          <img src="images/DAS1R8A7901B.jpg" alt="Dr. Omowunmi Olalere, speaking portrait">
+          <div class="wc-body"><div class="wc-tag">Keynotes</div><h3>Speaking &amp; Boardrooms</h3><p>Sessions on transition, capital protection, and enterprise.</p></div>
+        </a>
+        <a class="way-card" data-nav="gallery">
+          <img src="images/DAS1R8A8334B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait">
+          <div class="wc-body"><div class="wc-tag">Gallery</div><h3>See Her at Work</h3><p>Across the boardroom, the stage, and the classroom.</p></div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- PULL QUOTE -->
-  <section class="pull reveal">
-    <div class="wrap">
-      <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
-      <blockquote>A career builds judgement. A business needs a model. This is the work of turning one into the other.</blockquote>
+  <!-- FULL-BLEED STATEMENT -->
+  <section class="statement reveal">
+    <img src="images/DAS1R8A8266B.jpg" alt="Dr. Omowunmi Olalere in a spotlight portrait">
+    <div class="statement-inner">
+      <h2>Turn twenty years of experience into a business that lasts.</h2>
+      <p>Close the gap between the career you had and the business you're ready to build, with a system built on judgement, not guesswork.</p>
+      <a class="btn btn-gold" data-scroll="masterclass">Start now</a>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services" id="services">
+  <!-- PILLARS -->
+  <section class="pillars" id="about">
     <div class="wrap">
-      <div class="svc-head reveal">
-        <h2 class="section-title">Three ways to work with her.</h2>
-        <p>Whether you want a room full of peers, a private conversation, or a plan on paper, each path leads to the same place: a business decision made with clarity, not guesswork.</p>
-      </div>
-      <div class="svc-stack">
-        <div class="svc-feature reveal">
-          <div>
-            <span class="tag">Flagship</span>
-            <h3>The Business Transition Masterclass</h3>
-            <p>A structured, one-day working session where you leave with a written business-entry plan built around your background, capital, and goals. Facilitated personally.</p>
-            <a class="link" data-scroll="masterclass" style="border-bottom-color: var(--gold); color:#fff">See the Next Date</a>
-          </div>
-          <svg class="rings mark" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
-        </div>
-        <div class="svc-pair">
-          <div class="svc-card reveal">
-            <h3>Private Advisory</h3>
-            <p>One-to-one counsel for executives and retirees making a significant move: a business, an acquisition, a capital deployment decision, with a lot riding on getting it right.</p>
-            <a class="link" data-scroll="contact">Start a Conversation</a>
-          </div>
-          <div class="svc-card reveal">
-            <h3>Speaking and Boardrooms</h3>
-            <p>Keynotes and closed-door sessions for organisations, associations, and retirement communities on transition, capital protection, and enterprise after a career.</p>
-            <a class="link" data-scroll="contact">Enquire About Speaking</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MASTERCLASS FEATURE -->
-  <section class="mc" id="masterclass">
-    <div class="wrap">
-      <div class="mc-inner">
+      <div class="pillars-grid">
         <div class="reveal">
-          <span class="kicker on-dark">
-            <svg class="rings" width="20" height="12" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="6"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="6"/></svg>
-            The Business Transition Masterclass
-          </span>
-          <h2>One day to turn your experience into a business that <em>works.</em></h2>
-          <p class="mc-sub">A structured working session where you leave with a written business-entry plan built around your specific background, your capital, and your goals, facilitated personally by Dr. Olalere.</p>
-          <div class="mc-detail">
-            <div class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span>Sat, 19 Sept 2026</span></div>
-            <div class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg><span>[Venue], Lagos</span></div>
-            <div class="d"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z"/></svg><span>Limited to [X] seats</span></div>
-          </div>
-          <ul class="outcomes">
-            <li class="outcome"><div class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div><p>A clear assessment of which business model fits your experience, capital, and lifestyle, not what's trendy.</p></li>
-            <li class="outcome"><div class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div><p>A capital deployment framework: how much to commit, what to hold back, and how to structure your first investment decision.</p></li>
-            <li class="outcome"><div class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div><p>A 90-day business-entry roadmap you can follow the week after the event, with accountability built in.</p></li>
-            <li class="outcome"><div class="chk"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 6 5 9 10 3"/></svg></div><p>The answers to your specific questions, in a live Q&amp;A where no question is too basic.</p></li>
+          <span class="eyebrow">What You Leave With</span>
+          <ul class="pillars-list" style="margin-top:16px;">
+            <li class="hl">Capital</li>
+            <li>Model</li>
+            <li>Risk</li>
+            <li>Network</li>
+            <li>Timing</li>
+            <li>Confidence</li>
           </ul>
         </div>
-        <div class="mc-card reveal">
-          <div class="label">How the day is structured</div>
-          <div class="agenda-item"><div class="agenda-time">9:00</div><div><div class="agenda-title">Arrival, coffee and introductions</div><div class="agenda-desc">Meet your cohort, professionals and executives at the same crossroads.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">9:30</div><div><div class="agenda-title">Session 1. The transition reality check</div><div class="agenda-desc">What changes when you leave corporate, what your experience is worth, and the mistakes first-time owners make with savings.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">11:00</div><div><div class="agenda-title">Session 2. Finding your business fit</div><div class="agenda-desc">A live working session mapping your skills, network, capital, and risk tolerance to two or three directions that genuinely fit.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">13:00</div><div><div class="agenda-title">Networking lunch</div><div class="agenda-desc">Included. Facilitated peer conversations between attendees.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">14:00</div><div><div class="agenda-title">Session 3. Capital, risk, and protection</div><div class="agenda-desc">How to invest without risking your retirement security. Structuring entry capital. What never to do with a pension or lump sum.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">15:30</div><div><div class="agenda-title">Session 4. Your 90-day entry plan</div><div class="agenda-desc">You leave with a written, working plan for your first 90 days in business.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">16:45</div><div><div class="agenda-title">Open Q&amp;A with Dr. Olalere</div><div class="agenda-desc">Your specific questions. Real, direct answers.</div></div></div>
-          <div class="agenda-item"><div class="agenda-time">17:30</div><div><div class="agenda-title">Closing and next steps</div><div class="agenda-desc">Your accountability plan for the 48 hours after you leave the room.</div></div></div>
-          <div class="mc-cta">
-            <a class="btn btn-solid" data-scroll="contact">Reserve Your Seat ↗</a>
-            <p class="mc-note">Includes full-day access, printed workbook, networking lunch, and post-event resource pack. Early-bird pricing until [date].</p>
+        <div class="pillars-photo reveal">
+          <img src="images/DAS1R8A8457B.jpg" alt="Dr. Omowunmi Olalere, seated portrait in business attire">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL FULL-BLEED -->
+  <section class="quote-feature reveal">
+    <img src="images/DAS1R8A8140B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait">
+    <div class="quote-side">
+      <div>
+        <blockquote id="quoteText">"After 28 years in banking, I thought I knew enough to start a business. Dr. Olalere helped me see what I didn't know. It probably saved me from a costly mistake."</blockquote>
+        <div class="quote-avatars">
+          <div class="qav active" data-quote="After 28 years in banking, I thought I knew enough to start a business. Dr. Olalere helped me see what I didn't know. It probably saved me from a costly mistake.">
+            <div class="qav-img"><img src="images/DAS1R8A7961B.jpg" alt=""></div>
+            <div><div class="qav-name">[Full Name]</div><div class="qav-role">Retired Director, First Bank</div></div>
+          </div>
+          <div class="qav" data-quote="I had a lump sum in a fixed deposit and no clear idea what to do with it. The capital-deployment session alone was worth ten times the ticket price.">
+            <div class="qav-img"><img src="images/DAS1R8A7983B.jpg" alt=""></div>
+            <div><div class="qav-name">[Full Name]</div><div class="qav-role">Retired Civil Servant</div></div>
+          </div>
+          <div class="qav" data-quote="I attended three months before my retirement date. I left with a plan, a budget, and the confidence to execute it.">
+            <div class="qav-img"><img src="images/DAS1R8A8119B.jpg" alt=""></div>
+            <div><div class="qav-name">[Full Name]</div><div class="qav-role">Former GM, NNPC</div></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="testi">
+  <!-- BIO INTRO -->
+  <section class="bio">
     <div class="wrap">
-      <div class="testi-head reveal">
-        <h2 class="section-title">What attendees say.</h2>
-      </div>
-      <div class="testi-grid">
-        <div class="tcard featured reveal">
-          <p class="ttext">"After 28 years in banking, I thought I knew enough to start a business. Dr. Olalere helped me see what I didn't know. It probably saved me from a costly mistake."</p>
-          <div class="tauthor"><div class="tav">A</div><div><div class="tname">[Full Name]</div><div class="trole">[Retired Director, First Bank]</div></div></div>
+      <div class="bio-grid">
+        <div class="bio-photo reveal">
+          <img src="images/DAS1R8A8467B.jpg" alt="Dr. Omowunmi Olalere, standing portrait">
         </div>
-        <div class="tstack">
-          <div class="tcard reveal">
-            <p class="ttext">"I had a lump sum in a fixed deposit and no clear idea what to do with it. The capital-deployment session alone was worth ten times the ticket price."</p>
-            <div class="tauthor"><div class="tav">B</div><div><div class="tname">[Full Name]</div><div class="trole">[Retired Civil Servant, Abuja]</div></div></div>
+        <div class="reveal">
+          <span class="eyebrow">Founder &amp; CEO, Numero Group</span>
+          <h2>She's sat on both sides of this table.</h2>
+          <p>Dr. Omowunmi Olalere has built businesses from scratch, advised executives through the corporate-to-business transition, and spent years studying what separates post-career ventures that thrive from those that quietly drain what was earned over a lifetime. She founded Numero Group and the <em>My Business and I</em> platform on one conviction: the professionals who have earned the most are often given the least guidance at the point of transition.</p>
+          <a class="btn btn-outline-light" data-nav="gallery">Meet Dr. Olalere</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="results">
+    <div class="wrap">
+      <div class="results-top reveal">
+        <h2>A track record you can verify.</h2>
+        <div>
+          <p style="color:var(--mid); margin-bottom:0;">Join the senior professionals who've used this system to move from a career to a business, on their own terms. Attendee outcomes tracked from post-masterclass surveys include:</p>
+          <div class="results-stats">
+            <div class="rstat"><b>[X]%</b><span>Launched a business within 6 months</span></div>
+            <div class="rstat"><b>[X]%</b><span>Reported greater financial confidence</span></div>
           </div>
-          <div class="tcard reveal">
-            <p class="ttext">"I attended three months before my retirement date. I left with a plan, a budget, and the confidence to execute it."</p>
-            <div class="tauthor"><div class="tav">C</div><div><div class="tname">[Full Name]</div><div class="trole">[Former GM, NNPC]</div></div></div>
+          <a class="btn btn-outline-light" data-scroll="masterclass">Learn more</a>
+        </div>
+      </div>
+      <div class="carousel-track reveal">
+        <div class="rcard">
+          <img src="images/DAS1R8A8328B.jpg" alt="Attendee portrait placeholder">
+          <div class="rc-body"><p>"My favorite thing about this masterclass has been connecting with people at the same crossroads."</p><div class="rc-name">[Full Name]</div><div class="rc-role">[Retired Executive]</div></div>
+        </div>
+        <div class="rcard">
+          <img src="images/DAS1R8A8496B.jpg" alt="Attendee portrait placeholder">
+          <div class="rc-body"><p>"I no longer have one vague idea. I have a written plan and a number for how much capital to risk."</p><div class="rc-name">[Full Name]</div><div class="rc-role">[Business Owner]</div></div>
+        </div>
+        <div class="rcard">
+          <img src="images/DAS1R8A7775B.jpg" alt="Attendee portrait placeholder">
+          <div class="rc-body"><p>"This gave me permission to remove myself from the day job and focus on what comes next."</p><div class="rc-name">[Full Name]</div><div class="rc-role">[Retired Civil Servant]</div></div>
+        </div>
+        <div class="rcard">
+          <img src="images/DAS1R8A7817B.jpg" alt="Attendee portrait placeholder">
+          <div class="rc-body"><p>"The coach in between sessions was instrumental. I could keep the momentum going after I left the room."</p><div class="rc-name">[Full Name]</div><div class="rc-role">[Founder]</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENT DETAIL -->
+  <section class="event" id="masterclass">
+    <div class="wrap">
+      <div class="carousel-head reveal">
+        <div>
+          <span class="eyebrow">Upcoming Event</span>
+          <h2 style="margin-top:10px;">The Business Transition Masterclass</h2>
+        </div>
+      </div>
+      <div class="event-card reveal">
+        <img src="images/DAS1R8A8310B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait">
+        <div class="event-inner">
+          <span class="eyebrow on-dark">In-Person &amp; Virtual</span>
+          <h3>Create a business-entry plan built around your own capital, background, and goals.</h3>
+          <p class="desc">Not a motivational seminar. A structured, one-day working session facilitated personally by Dr. Olalere, with a written 90-day roadmap to take home.</p>
+          <a class="btn btn-gold" data-scroll="contact">Reserve Your Seat</a>
+          <div class="event-meta">
+            <div>Date<span>Sat, 19 Sept 2026</span></div>
+            <div>Place<span>[Venue], Lagos</span></div>
+            <div>Seats<span>Limited to [X]</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVATE ADVISORY -->
+  <section class="advisory">
+    <div class="wrap">
+      <div class="advisory-grid">
+        <div class="reveal">
+          <div class="adv-badge">
+            <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#0A0A0A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#0A0A0A" stroke-width="4"/></svg>
+            <span>Private Advisory</span>
+          </div>
+        </div>
+        <div class="adv-right reveal">
+          <h2>Direct guidance for your transition.</h2>
+          <div class="adv-stats">
+            <div><b>[X]+</b><span>Executives advised</span></div>
+            <div><b>1:1</b><span>Personally led, no associates</span></div>
+          </div>
+          <p class="body">Achieve a clear, funded plan for the business, acquisition, or capital decision you're weighing, with direct one-to-one counsel from Dr. Olalere.</p>
+          <div class="adv-btns">
+            <a class="btn btn-gold" data-scroll="contact">Start a Conversation</a>
+            <a class="btn btn-outline-dark" data-scroll="contact">Enquire About Speaking</a>
+          </div>
+          <div class="adv-photo">
+            <img src="images/DAS1R8A8555B.jpg" alt="Dr. Omowunmi Olalere, seated portrait">
           </div>
         </div>
       </div>
@@ -606,11 +556,17 @@
   <!-- INSIGHTS -->
   <section class="insights" id="insights">
     <div class="wrap">
-      <div class="insights-head reveal">
-        <h2 class="section-title">Practical reading for the professional in transition.</h2>
-        <p>No generic startup advice. Every piece is written for executives and senior professionals navigating the move from career to business ownership.</p>
+      <div class="carousel-head reveal">
+        <div>
+          <span class="eyebrow">Insights &amp; Resources</span>
+          <h2 style="margin-top:10px;">Practical reading for the professional in transition.</h2>
+        </div>
+        <div class="carousel-nav">
+          <button class="cnav-btn" data-scroll-track="artTrack" data-dir="-1" aria-label="Scroll left"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="cnav-btn" data-scroll-track="artTrack" data-dir="1" aria-label="Scroll right"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
       </div>
-      <div class="cats">
+      <div class="cats reveal">
         <span class="cat active">All</span>
         <span class="cat">Starting Out</span>
         <span class="cat">Capital and Investment</span>
@@ -618,26 +574,27 @@
         <span class="cat">Risk Management</span>
         <span class="cat">Mindset and Transition</span>
       </div>
-      <div class="art-grid">
-        <article class="art feature reveal">
-          <div class="thumb"><div class="swatch"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg></div></div>
-          <div class="body"><div class="tag">Starting Out</div><h3>The 5 questions every executive must answer before starting a business</h3><p>Before you register a company or spend a naira, these five questions tell you whether you're ready, and what to do if you're not yet.</p></div>
-        </article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
-          <div class="body"><div class="tag">Capital and Investment</div><h3>How much of your retirement savings should go into a business?</h3><p>A framework for deciding how much of your gratuity or savings is safe to deploy.</p></div>
-          <a class="link" href="#">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
-          <div class="body"><div class="tag">Business Models</div><h3>7 business models that work for retired Nigerian executives</h3><p>Not every model suits a first-time owner with capital but limited time.</p></div>
-          <a class="link" href="#">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
-          <div class="body"><div class="tag">Risk Management</div><h3>The one critical mistake experienced professionals make</h3><p>Decades of corporate success can work against you in year one.</p></div>
-          <a class="link" href="#">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
-          <div class="body"><div class="tag">Mindset and Transition</div><h3>From being managed to managing yourself</h3><p>The hardest part of leaving a 30-year career isn't the business plan.</p></div>
-          <a class="link" href="#">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
-          <div class="body"><div class="tag">Starting Out</div><h3>Your professional network is your first business asset</h3><p>After decades in corporate Nigeria, your network is worth more than your savings.</p></div>
-          <a class="link" href="#">Read article →</a></article>
+      <div class="carousel-track reveal" id="artTrack">
+        <div class="art-card">
+          <div class="thumb"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg></div>
+          <div class="abody"><div class="tag">Starting Out</div><h3>The 5 questions every executive must answer first</h3><p>Before you register a company or spend a naira.</p><a class="rlink" href="#">Read article →</a></div>
+        </div>
+        <div class="art-card">
+          <div class="thumb"></div>
+          <div class="abody"><div class="tag">Capital and Investment</div><h3>How much of your retirement savings should go into a business?</h3><p>A framework for deciding what's safe to deploy.</p><a class="rlink" href="#">Read article →</a></div>
+        </div>
+        <div class="art-card">
+          <div class="thumb"></div>
+          <div class="abody"><div class="tag">Business Models</div><h3>7 models that work for retired Nigerian executives</h3><p>Not every model suits a first-time owner.</p><a class="rlink" href="#">Read article →</a></div>
+        </div>
+        <div class="art-card">
+          <div class="thumb"></div>
+          <div class="abody"><div class="tag">Risk Management</div><h3>The one mistake experienced professionals make</h3><p>Decades of corporate success can work against you.</p><a class="rlink" href="#">Read article →</a></div>
+        </div>
+        <div class="art-card">
+          <div class="thumb"></div>
+          <div class="abody"><div class="tag">Mindset and Transition</div><h3>From being managed to managing yourself</h3><p>The hardest part isn't the business plan.</p><a class="rlink" href="#">Read article →</a></div>
+        </div>
       </div>
     </div>
   </section>
@@ -645,24 +602,28 @@
   <!-- OPTIN -->
   <section class="optin">
     <div class="wrap">
+      <span class="eyebrow" style="margin-bottom:14px;">Free Guide</span>
       <h2>The Corporate-to-Business Transition Checklist</h2>
-      <p class="lead">A step-by-step checklist for senior professionals thinking about entering business. What to assess, what to prepare, and what never to skip. Free, immediate, no fluff.</p>
+      <p class="lead">A step-by-step checklist for senior professionals thinking about entering business. Free, immediate, no fluff.</p>
       <form class="optin-form" onsubmit="return false">
-        <div class="field">
-          <label for="optin-name">First name</label>
-          <input id="optin-name" type="text" placeholder="Adaeze">
-        </div>
-        <div class="field">
-          <label for="optin-email">Email address</label>
-          <input id="optin-email" type="email" placeholder="you@company.com">
-        </div>
-        <button type="submit" class="btn btn-solid">Send the Checklist</button>
+        <div class="field"><label for="optin-name">First name</label><input id="optin-name" type="text" placeholder="Adaeze"></div>
+        <div class="field"><label for="optin-email">Email address</label><input id="optin-email" type="email" placeholder="you@company.com"></div>
+        <button type="submit" class="btn btn-gold">Send the Checklist</button>
       </form>
       <p class="optin-note">No spam. Unsubscribe at any time.</p>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- CLOSING CTA -->
+  <section class="closing">
+    <img src="images/DAS1R8A8334B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait">
+    <div class="closing-inner">
+      <h2>Ready to build the business only you could build?</h2>
+      <p>Now is the time. Reserve your seat at the next Business Transition Masterclass.</p>
+      <a class="btn btn-gold" data-scroll="masterclass">Reserve Your Seat</a>
+    </div>
+  </section>
+
   <footer id="contact">
     <div class="wrap">
       <div class="footer-grid">
@@ -671,14 +632,14 @@
             <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
             <span class="footer-word">Omowunmi<br>Olalere</span>
           </div>
-          <p class="footer-tag">Practical business guidance for senior professionals, executives, and retirees entering business for the first time. Founder and CEO of Numero Group and the My Business and I platform.</p>
+          <p class="footer-tag">Practical business guidance for senior professionals, executives, and retirees entering business for the first time. Founder and CEO of Numero Group.</p>
         </div>
         <div class="fc">
           <h4>Navigate</h4>
           <a data-nav="home">Home</a>
           <a data-scroll="about" data-nav="home">About</a>
           <a data-scroll="services" data-nav="home">Services</a>
-          <a data-scroll="masterclass" data-nav="home">The Masterclass</a>
+          <a data-scroll="masterclass" data-nav="home">Masterclass</a>
           <a data-nav="gallery">Gallery</a>
           <a data-scroll="insights" data-nav="home">Insights</a>
         </div>
@@ -689,8 +650,11 @@
             <a class="soc" href="#" aria-label="Instagram">IG</a>
             <a class="soc" href="#" aria-label="YouTube">YT</a>
           </div>
-          <a href="mailto:hello@omowunmiolalere.com" style="margin-top:16px">hello@omowunmiolalere.com</a>
-          <a href="#" style="color:var(--gold)">omowunmiolalere.com →</a>
+        </div>
+        <div class="fc">
+          <h4>Customer Support</h4>
+          <p>Questions on the masterclass, advisory, or speaking bookings.</p>
+          <a href="mailto:hello@omowunmiolalere.com" style="margin-top:12px">hello@omowunmiolalere.com</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -701,21 +665,19 @@
   </footer>
 </div>
 
-<!-- ================================================= -->
-<!-- =================  GALLERY PAGE  ================ -->
-<!-- ================================================= -->
+<!-- ================= GALLERY PAGE ================= -->
 <div class="page" id="page-gallery">
 
-  <section class="gal-hero">
-    <div class="wrap">
-      <span class="kicker on-dark">
-        <svg class="rings" width="20" height="12" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="6"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="6"/></svg>
-        Gallery
-      </span>
-      <h1>Dr. Olalere, <em>at work.</em></h1>
-      <p>Across the boardroom, the stage, and the classroom, a look at the spheres where the work happens. Filter by the kind of engagement you're interested in.</p>
+  <div class="gal-hero-shell">
+    <div class="gal-hero">
+      <img src="images/DAS1R8A7983B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait">
+      <div class="gal-hero-inner">
+        <span class="eyebrow on-dark">Gallery</span>
+        <h1>Dr. Olalere, at work.</h1>
+        <p>Across the boardroom, the stage, and the classroom, a look at the spheres where the work happens.</p>
+      </div>
     </div>
-  </section>
+  </div>
 
   <div class="gal-filters">
     <div class="wrap">
@@ -729,33 +691,35 @@
   </div>
 
   <section class="gal-section">
-    <div class="wrap">
-      <div class="masonry" id="masonry">
-        <!-- Each .gitem: swap the .photo-ph for <img src="..." alt="..."> and keep the .meta block -->
-        <div class="gitem tall" data-cat="speaking"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Keynote on stage</span></div><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">Delivering the opening keynote at [event]</div></div></div>
-        <div class="gitem sq" data-cat="advisory"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Boardroom session</span></div><div class="meta"><div class="s">Boardroom and Advisory</div><div class="c">Closed-door advisory with an executive team</div></div></div>
-        <div class="gitem wide" data-cat="teaching"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Masterclass room</span></div><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">Facilitating the Business Transition Masterclass</div></div></div>
-        <div class="gitem tall" data-cat="media"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">TV or press interview</span></div><div class="meta"><div class="s">Media and Press</div><div class="c">Interviewed on [programme or publication]</div></div></div>
-        <div class="gitem sq" data-cat="numero"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Numero Group HQ</span></div><div class="meta"><div class="s">Numero Group</div><div class="c">With the Numero Group team</div></div></div>
-        <div class="gitem wide" data-cat="speaking"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Panel discussion</span></div><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">On the panel at [conference]</div></div></div>
-        <div class="gitem tall" data-cat="teaching"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Teaching close-up</span></div><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">A working session with attendees</div></div></div>
-        <div class="gitem sq" data-cat="advisory"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">One-to-one advisory</span></div><div class="meta"><div class="s">Boardroom and Advisory</div><div class="c">Private counsel with a client</div></div></div>
-        <div class="gitem wide" data-cat="media"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Magazine feature</span></div><div class="meta"><div class="s">Media and Press</div><div class="c">Featured in [publication]</div></div></div>
-        <div class="gitem tall" data-cat="numero"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Portrait, founder</span></div><div class="meta"><div class="s">Numero Group</div><div class="c">Founder and CEO portrait</div></div></div>
-        <div class="gitem sq" data-cat="speaking"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Fireside chat</span></div><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">Fireside conversation at [event]</div></div></div>
-        <div class="gitem wide" data-cat="teaching"><div class="photo-ph"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg><span class="cap">Workshop wide shot</span></div><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">A full cohort in session</div></div></div>
-      </div>
+    <div class="masonry" id="masonry">
+      <div class="gitem" data-cat="advisory"><img src="images/DAS1R8A8408B.jpg" alt="Dr. Omowunmi Olalere, standing portrait"><div class="meta"><div class="s">Boardroom and Advisory</div><div class="c">Private counsel with a client</div></div></div>
+      <div class="gitem" data-cat="speaking"><img src="images/DAS1R8A7901B.jpg" alt="Dr. Omowunmi Olalere, dramatic portrait"><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">Delivering the opening keynote at [event]</div></div></div>
+      <div class="gitem" data-cat="teaching"><img src="images/DAS1R8A8444B.jpg" alt="Dr. Omowunmi Olalere, seated portrait"><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">Facilitating the Business Transition Masterclass</div></div></div>
+      <div class="gitem" data-cat="media"><img src="images/DAS1R8A8266B.jpg" alt="Dr. Omowunmi Olalere, spotlight portrait"><div class="meta"><div class="s">Media and Press</div><div class="c">Interviewed on [programme or publication]</div></div></div>
+      <div class="gitem" data-cat="numero"><img src="images/DAS1R8A7983B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Numero Group</div><div class="c">Founder and CEO portrait</div></div></div>
+      <div class="gitem" data-cat="speaking"><img src="images/DAS1R8A8140B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">On the panel at [conference]</div></div></div>
+      <div class="gitem" data-cat="teaching"><img src="images/DAS1R8A8555B.jpg" alt="Dr. Omowunmi Olalere, seated portrait"><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">A working session with attendees</div></div></div>
+      <div class="gitem" data-cat="advisory"><img src="images/DAS1R8A8457B.jpg" alt="Dr. Omowunmi Olalere, seated portrait"><div class="meta"><div class="s">Boardroom and Advisory</div><div class="c">Closed-door advisory with an executive team</div></div></div>
+      <div class="gitem" data-cat="media"><img src="images/DAS1R8A7817B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Media and Press</div><div class="c">Featured in [publication]</div></div></div>
+      <div class="gitem" data-cat="numero"><img src="images/DAS1R8A8119B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Numero Group</div><div class="c">With the Numero Group team</div></div></div>
+      <div class="gitem" data-cat="speaking"><img src="images/DAS1R8A8310B.jpg" alt="Dr. Omowunmi Olalere, spotlight portrait"><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">Fireside conversation at [event]</div></div></div>
+      <div class="gitem" data-cat="teaching"><img src="images/DAS1R8A8622B.jpg" alt="Dr. Omowunmi Olalere, portrait"><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">A full cohort in session</div></div></div>
+      <div class="gitem" data-cat="advisory"><img src="images/DAS1R8A8467B.jpg" alt="Dr. Omowunmi Olalere, standing portrait"><div class="meta"><div class="s">Boardroom and Advisory</div><div class="c">One-to-one advisory session</div></div></div>
+      <div class="gitem" data-cat="numero"><img src="images/DAS1R8A8160B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Numero Group</div><div class="c">Founder portrait</div></div></div>
+      <div class="gitem" data-cat="numero"><img src="images/DAS1R8A8328B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Numero Group</div><div class="c">Brand portrait</div></div></div>
+      <div class="gitem" data-cat="media"><img src="images/DAS1R8A7961B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Media and Press</div><div class="c">TV or press interview</div></div></div>
+      <div class="gitem" data-cat="numero"><img src="images/DAS1R8A8496B.jpg" alt="Dr. Omowunmi Olalere, standing portrait"><div class="meta"><div class="s">Numero Group</div><div class="c">With the Numero Group team</div></div></div>
+      <div class="gitem" data-cat="advisory"><img src="images/DAS1R8A8552B.jpg" alt="Dr. Omowunmi Olalere, seated portrait"><div class="meta"><div class="s">Boardroom and Advisory</div><div class="c">Private counsel with a client</div></div></div>
+      <div class="gitem" data-cat="teaching"><img src="images/DAS1R8A7775B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Masterclass and Teaching</div><div class="c">Workshop wide shot</div></div></div>
+      <div class="gitem" data-cat="speaking"><img src="images/DAS1R8A8334B.jpg" alt="Dr. Omowunmi Olalere, editorial portrait"><div class="meta"><div class="s">Speaking and Keynotes</div><div class="c">Panel discussion</div></div></div>
     </div>
   </section>
 
   <section class="gal-cta">
-    <div class="wrap">
-      <h2>Want Dr. Olalere in your room?</h2>
-      <a class="btn btn-ink" data-nav="home" data-scroll="contact">Enquire About Speaking</a>
-    </div>
+    <h2>Want Dr. Olalere in your room?</h2>
+    <a class="btn btn-outline-light" data-nav="home" data-scroll="contact">Enquire About Speaking</a>
   </section>
 
-  <!-- FOOTER (shared) -->
   <footer>
     <div class="wrap">
       <div class="footer-grid">
@@ -764,14 +728,14 @@
             <svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
             <span class="footer-word">Omowunmi<br>Olalere</span>
           </div>
-          <p class="footer-tag">Practical business guidance for senior professionals, executives, and retirees entering business for the first time. Founder and CEO of Numero Group and the My Business and I platform.</p>
+          <p class="footer-tag">Practical business guidance for senior professionals, executives, and retirees entering business for the first time. Founder and CEO of Numero Group.</p>
         </div>
         <div class="fc">
           <h4>Navigate</h4>
           <a data-nav="home">Home</a>
           <a data-scroll="about" data-nav="home">About</a>
           <a data-scroll="services" data-nav="home">Services</a>
-          <a data-scroll="masterclass" data-nav="home">The Masterclass</a>
+          <a data-scroll="masterclass" data-nav="home">Masterclass</a>
           <a data-nav="gallery">Gallery</a>
           <a data-scroll="insights" data-nav="home">Insights</a>
         </div>
@@ -782,8 +746,11 @@
             <a class="soc" href="#" aria-label="Instagram">IG</a>
             <a class="soc" href="#" aria-label="YouTube">YT</a>
           </div>
-          <a href="mailto:hello@omowunmiolalere.com" style="margin-top:16px">hello@omowunmiolalere.com</a>
-          <a href="#" style="color:var(--gold)">omowunmiolalere.com →</a>
+        </div>
+        <div class="fc">
+          <h4>Customer Support</h4>
+          <p>Questions on the masterclass, advisory, or speaking bookings.</p>
+          <a href="mailto:hello@omowunmiolalere.com" style="margin-top:12px">hello@omowunmiolalere.com</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -795,21 +762,15 @@
 </div>
 
 <script>
-  /* ---------- Page routing ---------- */
   function showPage(name, scrollTarget) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + name);
     if (target) target.classList.add('active');
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-    document.querySelectorAll('.nav-links a[data-nav="' + name + '"]').forEach(a => {
-      if (!a.dataset.scroll) a.classList.add('active');
-    });
+    document.querySelectorAll('.nav-links a[data-nav="' + name + '"]').forEach(a => { if (!a.dataset.scroll) a.classList.add('active'); });
     document.getElementById('navLinks').classList.remove('open');
     if (scrollTarget) {
-      requestAnimationFrame(() => {
-        const el = document.getElementById(scrollTarget);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+      requestAnimationFrame(() => { const el = document.getElementById(scrollTarget); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
     } else {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
@@ -828,35 +789,35 @@
       document.getElementById('navLinks').classList.remove('open');
       return;
     }
-    if (nav) {
-      e.preventDefault();
-      showPage(nav, scroll);
-    }
+    if (nav) { e.preventDefault(); showPage(nav, scroll); }
   });
 
-  /* ---------- Mobile menu ---------- */
   document.getElementById('navToggle').addEventListener('click', function () {
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  /* ---------- Countdown to 19 Sept 2026 ---------- */
-  function updateCountdown() {
-    const event = new Date('2026-09-19T09:00:00+01:00'); // WAT
-    const diff = event - new Date();
-    const d = document.getElementById('cd-days');
-    if (!d) return;
-    if (diff > 0) {
-      d.textContent = Math.floor(diff / 86400000);
-      document.getElementById('cd-hours').textContent = Math.floor((diff % 86400000) / 3600000);
-      document.getElementById('cd-mins').textContent = Math.floor((diff % 3600000) / 60000);
-    } else {
-      d.textContent = document.getElementById('cd-hours').textContent = document.getElementById('cd-mins').textContent = '0';
-    }
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 60000);
+  /* Carousel arrow controls */
+  document.querySelectorAll('[data-scroll-track]').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const track = document.getElementById(this.dataset.scrollTrack);
+      if (!track) return;
+      const dir = parseInt(this.dataset.dir, 10);
+      const card = track.firstElementChild;
+      const amount = card ? (card.getBoundingClientRect().width + 20) * 2 : 300;
+      track.scrollBy({ left: dir * amount, behavior: 'smooth' });
+    });
+  });
 
-  /* ---------- Gallery filter ---------- */
+  /* Testimonial avatar switcher */
+  document.querySelectorAll('.qav').forEach(av => {
+    av.addEventListener('click', function () {
+      document.querySelectorAll('.qav').forEach(a => a.classList.remove('active'));
+      this.classList.add('active');
+      document.getElementById('quoteText').textContent = '"' + this.dataset.quote + '"';
+    });
+  });
+
+  /* Gallery filter */
   document.querySelectorAll('.gfilter').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.gfilter').forEach(b => b.classList.remove('active'));
@@ -868,19 +829,18 @@
     });
   });
 
-  /* ---------- Insights category (visual toggle only) ---------- */
+  /* Insights category (visual toggle only) */
   document.querySelectorAll('.cat').forEach(c => c.addEventListener('click', function () {
     document.querySelectorAll('.cat').forEach(x => x.classList.remove('active'));
     this.classList.add('active');
   }));
 
-  /* ---------- Scroll reveal ---------- */
   let io;
   function runReveal() {
     if (!io) {
       io = new IntersectionObserver(entries => {
         entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.1 });
     }
     document.querySelectorAll('.page.active .reveal:not(.in)').forEach(el => io.observe(el));
   }
