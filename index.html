@@ -375,9 +375,16 @@
     .event-strip { font-size: 0.72rem; gap: 10px; }
     .optin-form { flex-direction: column; align-items: stretch; }
     .about, .services, .testi, .insights, .mc, .pull { padding: 60px 0; }
+    .cat, .gfilter { padding: 10px 18px; }
   }
   @media (min-width: 941px) and (max-width: 1120px) {
     .masonry { columns: 2; }
+  }
+  @media (max-width: 480px) {
+    .cred { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .cred .k { width: auto; }
+    .nav-links a:not(.nav-cta) { padding: 15px 0; }
+    .hero-btns .btn { width: 100%; }
   }
 </style>
 </head>
