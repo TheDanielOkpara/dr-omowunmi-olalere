@@ -103,18 +103,23 @@
     background: var(--ink); color: #fff; margin-top: 74px;
     padding: 12px 24px; font-size: 0.8rem; letter-spacing: 0.01em;
     display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;
+    cursor: pointer; transition: background 0.2s ease;
   }
+  .event-strip:hover { background: var(--ink-2); }
+  .event-strip:hover .cta-arrow { transform: translateX(3px); }
   .event-strip strong { color: var(--gold); font-weight: 600; }
   .event-strip .sep { opacity: 0.28; }
-  .event-strip a { color: var(--gold); font-weight: 600; text-decoration: none; }
-  .event-strip a:hover { text-decoration: underline; }
+  .event-strip .cta-arrow { color: var(--gold); font-weight: 600; display: inline-block; transition: transform 0.2s ease; }
   .cd { display: flex; gap: 12px; }
   .cd .u { text-align: center; }
   .cd .n { font-family: var(--display); font-size: 1.1rem; font-weight: 700; color: var(--gold); display: block; line-height: 1; }
   .cd .l { font-size: 0.52rem; opacity: 0.55; text-transform: uppercase; letter-spacing: 0.1em; }
 
   /* ---------- HERO ---------- */
-  .hero { padding: 64px 0 44px; }
+  .hero {
+    padding: 64px 0 44px;
+    background: linear-gradient(127deg, rgba(0,210,26,0.08) 0%, var(--paper) 38%, var(--paper) 62%, rgba(248,200,51,0.14) 100%);
+  }
   .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
   .hero-name {
     font-family: var(--display); font-weight: 500;
@@ -420,7 +425,7 @@
 <div class="page active" id="page-home">
 
   <!-- EVENT STRIP -->
-  <div class="event-strip">
+  <div class="event-strip" data-scroll="masterclass" role="link" tabindex="0" aria-label="The Business Transition Masterclass, Saturday 19 September 2026, Lagos. View details.">
     <strong>The Business Transition Masterclass</strong>
     <span class="sep">|</span>
     <span>Saturday, 19 September 2026, Lagos</span>
@@ -430,7 +435,7 @@
       <div class="u"><span class="n" id="cd-hours">—</span><span class="l">Hrs</span></div>
       <div class="u"><span class="n" id="cd-mins">—</span><span class="l">Min</span></div>
     </div>
-    <a data-scroll="masterclass">Reserve Your Seat →</a>
+    <span class="cta-arrow">→</span>
   </div>
 
   <!-- HERO -->
@@ -832,6 +837,16 @@
   /* ---------- Mobile menu ---------- */
   document.getElementById('navToggle').addEventListener('click', function () {
     document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  /* ---------- Keyboard activation for role="link" elements (e.g. event strip) ---------- */
+  document.querySelectorAll('[role="link"][data-scroll]').forEach(el => {
+    el.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        el.click();
+      }
+    });
   });
 
   /* ---------- Countdown to 19 Sept 2026 ---------- */
