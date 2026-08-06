@@ -610,31 +610,31 @@
         <p>No generic startup advice. Every piece is written for executives and senior professionals navigating the move from career to business ownership.</p>
       </div>
       <div class="cats">
-        <span class="cat active">All</span>
-        <span class="cat">Starting Out</span>
-        <span class="cat">Capital and Investment</span>
-        <span class="cat">Business Models</span>
-        <span class="cat">Risk Management</span>
-        <span class="cat">Mindset and Transition</span>
+        <span class="cat active" data-filter="all">All</span>
+        <span class="cat" data-filter="starting-out">Starting Out</span>
+        <span class="cat" data-filter="capital-investment">Capital and Investment</span>
+        <span class="cat" data-filter="business-models">Business Models</span>
+        <span class="cat" data-filter="risk-management">Risk Management</span>
+        <span class="cat" data-filter="mindset-transition">Mindset and Transition</span>
       </div>
-      <div class="art-grid">
-        <article class="art feature reveal">
+      <div class="art-grid" id="artGrid">
+        <article class="art feature reveal" data-cat="starting-out">
           <div class="thumb"><div class="swatch"><svg class="rings" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg></div></div>
           <div class="body"><div class="tag">Starting Out</div><h3>The 5 Questions Every Executive Must Answer Before Starting a Business</h3><p>Before you register a company or spend a naira, these five questions tell you whether you're ready, and what to do if you're not yet.</p><a class="link" href="insights/questions-before-starting-a-business.html" style="border-top:none; padding-left:0;">Read article →</a></div>
         </article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
+        <article class="art reveal" data-cat="capital-investment"><div class="thumb"><div class="swatch"></div></div>
           <div class="body"><div class="tag">Capital and Investment</div><h3>How Much of Your Retirement Savings Should Go Into a Business?</h3><p>A clear framework for how much of your gratuity, pension, or savings is safe to deploy, and how much to protect.</p></div>
           <a class="link" href="insights/retirement-savings-into-business.html">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
+        <article class="art reveal" data-cat="business-models"><div class="thumb"><div class="swatch"></div></div>
           <div class="body"><div class="tag">Business Models</div><h3>7 Business Models That Work for Retired Nigerian Executives (and 3 That Don't)</h3><p>Not every model suits a first-time owner with capital but limited time. Seven that fit, and three to avoid.</p></div>
           <a class="link" href="insights/business-models-for-retired-executives-nigeria.html">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
+        <article class="art reveal" data-cat="risk-management"><div class="thumb"><div class="swatch"></div></div>
           <div class="body"><div class="tag">Risk Management</div><h3>The One Critical Mistake Experienced Professionals Make Entering Business</h3><p>Decades of corporate success can quietly work against you in year one. The pattern, and how to avoid it.</p></div>
           <a class="link" href="insights/mistake-professionals-make-entering-business.html">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
+        <article class="art reveal" data-cat="mindset-transition"><div class="thumb"><div class="swatch"></div></div>
           <div class="body"><div class="tag">Mindset and Transition</div><h3>From Being Managed to Managing Yourself</h3><p>The hardest part of leaving a long career is rarely the business plan. It's the identity shift.</p></div>
           <a class="link" href="insights/from-being-managed-to-managing-yourself.html">Read article →</a></article>
-        <article class="art reveal"><div class="thumb"><div class="swatch"></div></div>
+        <article class="art reveal" data-cat="starting-out"><div class="thumb"><div class="swatch"></div></div>
           <div class="body"><div class="tag">Starting Out</div><h3>Your Professional Network Is Your First Business Asset</h3><p>After decades in corporate Nigeria, your network may be worth more than your savings, used the right way.</p></div>
           <a class="link" href="insights/professional-network-first-business-asset.html">Read article →</a></article>
       </div>
@@ -865,10 +865,14 @@
     });
   });
 
-  /* ---------- Insights category (visual toggle only) ---------- */
+  /* ---------- Insights category filter ---------- */
   document.querySelectorAll('.cat').forEach(c => c.addEventListener('click', function () {
     document.querySelectorAll('.cat').forEach(x => x.classList.remove('active'));
     this.classList.add('active');
+    const f = this.dataset.filter;
+    document.querySelectorAll('#artGrid .art').forEach(item => {
+      item.style.display = (f === 'all' || item.dataset.cat === f) ? '' : 'none';
+    });
   }));
 
   /* ---------- Scroll reveal ---------- */
