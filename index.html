@@ -21,6 +21,7 @@
     --gold:      #F8C833;   /* logo gold — graphic fills, CTAs, text-on-dark only */
     --gold-ink:  #7A5209;   /* deepened gold — AA-safe text on light backgrounds */
     --green:     #00D21A;   /* logo green — checks, focus rings, small marks */
+    --green-deep:#0A4A16;   /* deepened green — gradient anchor, AA-safe with white text */
 
     --display: 'Frank Ruhl Libre', Georgia, serif;
     --body: 'Archivo', system-ui, sans-serif;
@@ -118,17 +119,17 @@
   /* ---------- HERO ---------- */
   .hero {
     padding: 64px 0 44px;
-    background: linear-gradient(127deg, rgba(0,210,26,0.08) 0%, var(--paper) 38%, var(--paper) 62%, rgba(248,200,51,0.14) 100%);
+    background: linear-gradient(127deg, var(--green-deep) 0%, var(--ink) 42%, var(--ink) 58%, var(--gold-ink) 100%);
   }
   .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center; }
   .hero-name {
     font-family: var(--display); font-weight: 500;
     font-size: clamp(2.6rem, 5.2vw, 4.2rem); line-height: 1.02; letter-spacing: -0.025em;
-    color: var(--ink); margin: 20px 0 20px;
+    color: #fff; margin: 20px 0 20px;
   }
-  .hero-name .ln2 { font-style: italic; color: var(--gold-ink); display: block; line-height: 1.2; padding-bottom: 0.08em; }
-  .hero-sub { font-size: 1.06rem; color: var(--mid); max-width: 480px; margin-bottom: 30px; }
-  .hero-sub b { color: var(--ink); font-weight: 600; }
+  .hero-name .ln2 { font-style: italic; color: var(--gold); display: block; line-height: 1.2; padding-bottom: 0.08em; }
+  .hero-sub { font-size: 1.06rem; color: rgba(255,255,255,0.8); max-width: 480px; margin-bottom: 30px; }
+  .hero-sub b { color: #fff; font-weight: 600; }
   .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
 
   /* Portrait */
@@ -443,7 +444,7 @@
     <div class="wrap">
       <div class="hero-grid">
         <div class="hero-left">
-          <span class="kicker">
+          <span class="kicker on-dark">
             <svg class="rings" width="20" height="12" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="6"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="6"/></svg>
             Business Advisor to Executives in Transition
           </span>
@@ -451,7 +452,7 @@
           <p class="hero-sub">A Ph.D. advisor and founder of Numero Group, <b>Dr. Omowunmi Olalere</b> helps senior professionals turn 20+ years of career experience into a business that lasts.</p>
           <div class="hero-btns">
             <a class="btn btn-solid" data-scroll="masterclass">Reserve Your Seat ↗</a>
-            <a class="btn btn-outline" data-scroll="services">See How I Help</a>
+            <a class="btn btn-ghost-light" data-scroll="services">See How I Help</a>
           </div>
         </div>
         <div class="portrait">
