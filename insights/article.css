@@ -70,14 +70,52 @@ nav {
 .back-link:hover { color: var(--gold-ink); }
 .art-hero h1 { font-size: clamp(2rem, 3.6vw, 2.9rem); line-height: 1.15; color: var(--ink); margin: 14px 0 20px; max-width: 900px; }
 .art-hero .dek { font-size: 1.08rem; color: var(--mid); max-width: 680px; margin-bottom: 30px; }
+.byline-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .byline { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--mid); }
 .byline-mark { width: 26px; height: 16px; display: block; }
 .byline b { color: var(--ink); }
 .art-hero-photo { margin-top: 40px; border-radius: 2px; overflow: hidden; aspect-ratio: 21/9; max-width: 900px; }
 .art-hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+/* ---------- SHARE ---------- */
+.share-row { display: flex; align-items: center; gap: 10px; }
+.share-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mid); margin-right: 2px; }
+.share-btn {
+  width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--line); background: none;
+  display: flex; align-items: center; justify-content: center; color: var(--mid);
+  text-decoration: none; cursor: pointer; transition: all 0.2s; padding: 0; font-family: inherit;
+}
+.share-btn:hover { border-color: var(--gold-ink); color: var(--gold-ink); }
+.share-btn.copied { border-color: var(--green); color: var(--green); }
+.share-btn svg { width: 14px; height: 14px; }
+
+/* ---------- TABLE OF CONTENTS ---------- */
+.toc { background: var(--surface); border: 1px solid var(--line); border-radius: 2px; padding: 26px 30px; margin-bottom: 44px; max-width: 68ch; }
+.toc-title { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-ink); margin-bottom: 16px; }
+.toc ol { list-style: none; counter-reset: toc-counter; display: flex; flex-direction: column; gap: 11px; }
+.toc li { counter-increment: toc-counter; }
+.toc li a { display: flex; gap: 12px; align-items: baseline; text-decoration: none; color: var(--ink); font-size: 0.94rem; font-weight: 500; transition: color 0.2s; }
+.toc li a:hover { color: var(--gold-ink); }
+.toc li a::before {
+  content: counter(toc-counter, decimal-leading-zero); color: var(--gold-ink); font-weight: 700;
+  font-size: 0.78rem; font-variant-numeric: tabular-nums; flex-shrink: 0;
+}
+
 /* ---------- ARTICLE BODY ---------- */
 .art-body { max-width: 720px; padding-top: 56px; padding-bottom: 90px; }
+
+/* Sticky sidebar TOC on wide viewports: real 2-column reading layout instead of a plain centered column */
+@media (min-width: 1140px) {
+  .art-body { max-width: 1020px; display: grid; grid-template-columns: 230px 1fr; gap: 70px; align-items: start; }
+  .toc { position: sticky; top: 106px; background: none; border: none; padding: 0; margin-bottom: 0; max-width: none; }
+  .toc-title { margin-bottom: 22px; }
+  .toc ol { gap: 0; border-left: 2px solid var(--line); }
+  .toc li a { padding: 9px 0 9px 20px; margin-left: -2px; border-left: 2px solid transparent; font-size: 0.88rem; font-weight: 500; }
+  .toc li a::before { display: none; }
+  .toc li a:hover { color: var(--gold-ink); }
+  .toc li a.active { border-left-color: var(--gold); color: var(--gold-ink); font-weight: 700; }
+  .art-content { max-width: 68ch; }
+}
 .art-body h2 { font-size: clamp(1.4rem, 2.4vw, 1.7rem); color: var(--ink); margin: 44px 0 16px; line-height: 1.25; }
 .art-body h3 { font-size: 1.15rem; font-weight: 600; font-family: var(--body); color: var(--ink); margin: 28px 0 10px; }
 .art-body p { font-size: 1.02rem; color: #24262a; margin-bottom: 18px; max-width: 68ch; }
