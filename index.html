@@ -387,6 +387,7 @@
     .hero-btns .btn { width: 100%; }
   }
 </style>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -843,13 +844,19 @@
 
   /* ---------- Scroll reveal ---------- */
   let io;
+  const canObserve = 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function runReveal() {
+    const targets = document.querySelectorAll('.page.active .reveal:not(.in)');
+    if (!canObserve) {
+      targets.forEach(el => el.classList.add('in'));
+      return;
+    }
     if (!io) {
       io = new IntersectionObserver(entries => {
         entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
       }, { threshold: 0.12 });
     }
-    document.querySelectorAll('.page.active .reveal:not(.in)').forEach(el => io.observe(el));
+    targets.forEach(el => io.observe(el));
   }
   runReveal();
 </script>
