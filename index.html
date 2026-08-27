@@ -256,10 +256,8 @@
   .insights { padding: 96px 0; }
   .insights-head { max-width: 620px; margin-bottom: 36px; }
   .insights-head p { color: var(--mid); margin-top: 10px; }
-  .cats { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-  .cat { background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 7px 16px; border-radius: 2px; font-size: 0.76rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.2s; }
-  .cat.active, .cat:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
   .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: auto; gap: 22px; }
+  .insights-more { text-align: center; margin-top: 40px; }
   .art { background: var(--surface); border: 1px solid var(--line); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s cubic-bezier(0.16,1,0.3,1); }
   .art:hover { transform: translateY(-3px); }
   .art.feature { grid-column: span 2; flex-direction: row; }
@@ -407,7 +405,7 @@
       <a href="about.html">About</a>
       <a data-scroll="services" data-nav="home">Services</a>
       <a href="masterclass.html">Masterclass</a>
-      <a data-scroll="insights" data-nav="home">Insights</a>
+      <a href="insights.html">Insights</a>
       <a data-scroll="contact" data-nav="home">Contact</a>
       <a href="masterclass.html#register" class="nav-cta">Reserve Your Seat</a>
     </div>
@@ -600,14 +598,6 @@
         <h2 class="section-title">Practical reading for the professional in transition.</h2>
         <p>No generic startup advice. Every piece is written for executives and senior professionals navigating the move from career to business ownership.</p>
       </div>
-      <div class="cats">
-        <span class="cat active" data-filter="all">All</span>
-        <span class="cat" data-filter="starting-out">Starting Out</span>
-        <span class="cat" data-filter="capital-investment">Capital and Investment</span>
-        <span class="cat" data-filter="business-models">Business Models</span>
-        <span class="cat" data-filter="risk-management">Risk Management</span>
-        <span class="cat" data-filter="mindset-transition">Mindset and Transition</span>
-      </div>
       <div class="art-grid" id="artGrid">
         <article class="art feature reveal" data-cat="starting-out">
           <div class="thumb"><img src="images/articles/compass.jpg" alt="A brass compass on a dark desk, lit by a single warm light" style="width:100%;height:100%;object-fit:cover;"></div>
@@ -616,18 +606,9 @@
         <article class="art reveal" data-cat="capital-investment"><div class="thumb"><img src="images/articles/coins.jpg" alt="Stacked gold coins on a dark surface" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="body"><div class="tag">Capital and Investment</div><h3>How Much of Your Retirement Savings Should Go Into a Business?</h3><p>A clear framework for how much of your gratuity, pension, or savings is safe to deploy, and how much to protect.</p></div>
           <a class="link" href="insights/retirement-savings-into-business.html">Read article →</a></article>
-        <article class="art reveal" data-cat="business-models"><div class="thumb"><img src="images/articles/blocks.jpg" alt="Small wooden building models, one lit in warm light" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="body"><div class="tag">Business Models</div><h3>7 Business Models That Work for Retired Nigerian Executives (and 3 That Don't)</h3><p>Not every model suits a first-time owner with capital but limited time. Seven that fit, and three to avoid.</p></div>
-          <a class="link" href="insights/business-models-for-retired-executives-nigeria.html">Read article →</a></article>
-        <article class="art reveal" data-cat="risk-management"><div class="thumb"><img src="images/articles/chess.jpg" alt="A toppled chess king on a dark reflective surface" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="body"><div class="tag">Risk Management</div><h3>The One Critical Mistake Experienced Professionals Make Entering Business</h3><p>Decades of corporate success can quietly work against you in year one. The pattern, and how to avoid it.</p></div>
-          <a class="link" href="insights/mistake-professionals-make-entering-business.html">Read article →</a></article>
-        <article class="art reveal" data-cat="mindset-transition"><div class="thumb"><img src="images/articles/chair.jpg" alt="An empty chair silhouetted against a lit doorway" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="body"><div class="tag">Mindset and Transition</div><h3>From Being Managed to Managing Yourself</h3><p>The hardest part of leaving a long career is rarely the business plan. It's the identity shift.</p></div>
-          <a class="link" href="insights/from-being-managed-to-managing-yourself.html">Read article →</a></article>
-        <article class="art reveal" data-cat="starting-out"><div class="thumb"><img src="images/articles/network.jpg" alt="An abstract network of glowing gold and green connected nodes" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="body"><div class="tag">Starting Out</div><h3>Your Professional Network Is Your First Business Asset</h3><p>After decades in corporate Nigeria, your network may be worth more than your savings, used the right way.</p></div>
-          <a class="link" href="insights/professional-network-first-business-asset.html">Read article →</a></article>
+      </div>
+      <div class="insights-more reveal">
+        <a class="btn btn-outline" href="insights.html">View All Insights →</a>
       </div>
     </div>
   </section>
@@ -669,7 +650,7 @@
           <a href="about.html">About</a>
           <a data-scroll="services" data-nav="home">Services</a>
           <a href="masterclass.html">The Masterclass</a>
-          <a data-scroll="insights" data-nav="home">Insights</a>
+          <a href="insights.html">Insights</a>
         </div>
         <div class="fc">
           <h4>Connect</h4>
@@ -759,7 +740,7 @@
           <a href="about.html">About</a>
           <a data-scroll="services" data-nav="home">Services</a>
           <a href="masterclass.html">The Masterclass</a>
-          <a data-scroll="insights" data-nav="home">Insights</a>
+          <a href="insights.html">Insights</a>
         </div>
         <div class="fc">
           <h4>Connect</h4>
@@ -859,16 +840,6 @@
       });
     });
   });
-
-  /* ---------- Insights category filter ---------- */
-  document.querySelectorAll('.cat').forEach(c => c.addEventListener('click', function () {
-    document.querySelectorAll('.cat').forEach(x => x.classList.remove('active'));
-    this.classList.add('active');
-    const f = this.dataset.filter;
-    document.querySelectorAll('#artGrid .art').forEach(item => {
-      item.style.display = (f === 'all' || item.dataset.cat === f) ? '' : 'none';
-    });
-  }));
 
   /* ---------- Scroll reveal ---------- */
   let io;
