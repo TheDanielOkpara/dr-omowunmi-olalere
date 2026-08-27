@@ -105,7 +105,7 @@
     background: var(--ink); color: #fff; margin-top: 74px;
     padding: 12px 24px; font-size: 0.8rem; letter-spacing: 0.01em;
     display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;
-    cursor: pointer; transition: background 0.2s ease;
+    cursor: pointer; transition: background 0.2s ease; text-decoration: none;
   }
   .event-strip:hover { background: var(--ink-2); }
   .event-strip:hover .cta-arrow { transform: translateX(3px); }
@@ -412,10 +412,10 @@
       <a data-nav="home" class="active">Home</a>
       <a href="about.html">About</a>
       <a data-scroll="services" data-nav="home">Services</a>
-      <a data-scroll="masterclass" data-nav="home">Masterclass</a>
+      <a href="masterclass.html">Masterclass</a>
       <a data-scroll="insights" data-nav="home">Insights</a>
       <a data-scroll="contact" data-nav="home">Contact</a>
-      <a data-scroll="masterclass" data-nav="home" class="nav-cta">Reserve Your Seat</a>
+      <a href="masterclass.html#register" class="nav-cta">Reserve Your Seat</a>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
@@ -427,7 +427,7 @@
 <div class="page active" id="page-home">
 
   <!-- EVENT STRIP -->
-  <div class="event-strip" data-scroll="masterclass" role="link" tabindex="0" aria-label="The Business Transition Masterclass, Saturday 19 September 2026, Lagos. View details.">
+  <a class="event-strip" href="masterclass.html#register" aria-label="The Business Transition Masterclass, Saturday 19 September 2026, Lagos. Reserve your seat.">
     <strong>The Business Transition Masterclass</strong>
     <span class="sep">|</span>
     <span>Saturday, 19 September 2026, Lagos</span>
@@ -438,7 +438,7 @@
       <div class="u"><span class="n" id="cd-mins">—</span><span class="l">Min</span></div>
     </div>
     <span class="cta-arrow">→</span>
-  </div>
+  </a>
 
   <!-- HERO -->
   <header class="hero">
@@ -452,7 +452,7 @@
           <h1 class="hero-name">Omowunmi<span class="ln2">Olalere</span></h1>
           <p class="hero-sub">A Ph.D. advisor and founder of Numero Group, <b>Dr. Omowunmi Olalere</b> helps senior professionals turn 20+ years of career experience into a business that lasts.</p>
           <div class="hero-btns">
-            <a class="btn btn-solid" data-scroll="masterclass">Reserve Your Seat ↗</a>
+            <a class="btn btn-solid" href="masterclass.html#register">Reserve Your Seat ↗</a>
             <a class="btn btn-ghost-light" data-scroll="services">See How I Help</a>
           </div>
         </div>
@@ -522,7 +522,7 @@
             <span class="tag">Flagship</span>
             <h3>The Business Transition Masterclass</h3>
             <p>A structured, one-day working session where you leave with a written business-entry plan built around your background, capital, and goals. Facilitated personally.</p>
-            <a class="link" data-scroll="masterclass" style="border-bottom-color: var(--gold); color:#fff">See the Next Date</a>
+            <a class="link" href="masterclass.html" style="border-bottom-color: var(--gold); color:#fff">See the Next Date</a>
           </div>
           <svg class="rings mark" viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="none" stroke="#00D21A" stroke-width="4"/><circle cx="34" cy="20" r="16" fill="none" stroke="#F8C833" stroke-width="4"/></svg>
         </div>
@@ -576,7 +576,7 @@
           <div class="agenda-item"><div class="agenda-time">16:45</div><div><div class="agenda-title">Open Q&amp;A with Dr. Olalere</div><div class="agenda-desc">Your specific questions. Real, direct answers.</div></div></div>
           <div class="agenda-item"><div class="agenda-time">17:30</div><div><div class="agenda-title">Closing and next steps</div><div class="agenda-desc">Your accountability plan for the 48 hours after you leave the room.</div></div></div>
           <div class="mc-cta">
-            <a class="btn btn-solid" data-scroll="contact">Reserve Your Seat ↗</a>
+            <a class="btn btn-solid" href="masterclass.html#register">Reserve Your Seat ↗</a>
             <p class="mc-note">Includes full-day access, printed workbook, networking lunch, and post-event resource pack. Early-bird pricing until [date].</p>
           </div>
         </div>
@@ -684,7 +684,7 @@
           <a data-nav="home">Home</a>
           <a href="about.html">About</a>
           <a data-scroll="services" data-nav="home">Services</a>
-          <a data-scroll="masterclass" data-nav="home">The Masterclass</a>
+          <a href="masterclass.html">The Masterclass</a>
           <a data-scroll="insights" data-nav="home">Insights</a>
         </div>
         <div class="fc">
@@ -774,7 +774,7 @@
           <a data-nav="home">Home</a>
           <a href="about.html">About</a>
           <a data-scroll="services" data-nav="home">Services</a>
-          <a data-scroll="masterclass" data-nav="home">The Masterclass</a>
+          <a href="masterclass.html">The Masterclass</a>
           <a data-scroll="insights" data-nav="home">Insights</a>
         </div>
         <div class="fc">
@@ -839,15 +839,6 @@
     document.getElementById('navLinks').classList.toggle('open');
   });
 
-  /* ---------- Keyboard activation for role="link" elements (e.g. event strip) ---------- */
-  document.querySelectorAll('[role="link"][data-scroll]').forEach(el => {
-    el.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        el.click();
-      }
-    });
-  });
 
   /* ---------- Countdown to 19 Sept 2026 ---------- */
   function updateCountdown() {
