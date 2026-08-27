@@ -653,16 +653,16 @@
     <div class="wrap">
       <h2>The Corporate-to-Business Transition Checklist</h2>
       <p class="lead">A step-by-step checklist for senior professionals thinking about entering business. What to assess, what to prepare, and what never to skip. Free, immediate, no fluff.</p>
-      <form class="optin-form" onsubmit="return false">
+      <form class="optin-form" id="optinForm">
         <div class="field">
           <label for="optin-name">First name</label>
-          <input id="optin-name" type="text" placeholder="Adaeze">
+          <input id="optin-name" type="text" placeholder="Adaeze" required>
         </div>
         <div class="field">
           <label for="optin-email">Email address</label>
-          <input id="optin-email" type="email" placeholder="you@company.com">
+          <input id="optin-email" type="email" placeholder="you@company.com" required>
         </div>
-        <button type="submit" class="btn btn-solid">Send the Checklist</button>
+        <button type="submit" class="btn btn-solid">Get the Checklist</button>
       </form>
       <p class="optin-note">No spam. Unsubscribe at any time.</p>
     </div>
@@ -837,6 +837,13 @@
   /* ---------- Mobile menu ---------- */
   document.getElementById('navToggle').addEventListener('click', function () {
     document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  /* ---------- Checklist opt-in: no email backend yet, so the "delivery" is the checklist page itself ---------- */
+  document.getElementById('optinForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!this.checkValidity()) { this.reportValidity(); return; }
+    window.location.href = 'checklist.html';
   });
 
 
