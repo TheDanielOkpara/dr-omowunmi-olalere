@@ -173,6 +173,22 @@
 
   .divider{border:0;border-top:1px solid var(--line-soft)}
 
+  /* ---------- light zone: "who it's for" through "your host" read as one light
+     section, matching the rest of the site (only the hero and the
+     register/FAQ/footer close stay dark, mirroring the homepage's own
+     light-middle, dark-ending rhythm) ---------- */
+  .light-zone{
+    background:#FAFAFA;color:var(--ink);
+    --muted:#5B5D63;
+    --line-soft:#E7E7E4;
+    --line:#E7E7E4;
+    --paper:var(--ink);
+    --danger:#B3261E;
+  }
+  .light-zone .eyebrow,.light-zone .step .num{color:var(--gold-ink)}
+  .light-zone .btn-ghost{border-color:var(--ink)}
+  .light-zone .btn-ghost:hover{border-color:var(--gold-ink);color:var(--gold-ink)}
+
   /* ---------- who it's for ---------- */
   .fit-grid{display:grid;gap:2rem 0;grid-template-columns:1fr;border-top:1px solid var(--line-soft)}
   @media(min-width:760px){.fit-grid{grid-template-columns:repeat(3,1fr);gap:0}}
@@ -354,6 +370,7 @@
   </div>
 </section>
 
+<div class="light-zone">
 <!-- =================== WHO IT'S FOR =================== -->
 <section id="fit">
   <div class="wrap">
@@ -443,6 +460,7 @@
     </div>
   </div>
 </section>
+</div>
 
 <!-- =================== REGISTRATION =================== -->
 <section id="register" class="register">
